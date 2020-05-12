@@ -1,0 +1,25 @@
+*,*:before,*:after{
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+
+.self-clear:before, .self-clear:after{
+	content: "";
+	display: table;
+
+}
+
+.self-clear:after{
+	clear: both;
+	
+}
+
+/*hack para o IE*/
+
+.self-clear{
+	*zoom:1;
+}
+
