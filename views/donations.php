@@ -19,7 +19,7 @@
                 <div class="searchbar float-right">
                     <form class="form-inline" action="" method="get">
                         <input class="form-control" type="search" placeholder="O que precisas?" aria-label="search">
-                        <button class="bg-light text-dark btnsearch" type="submit" name="submit" value="enviar"><i class="fas fa-search"></i></button>
+                        <button class="bg-light text-dark btnsearch" type="submit" name="search"><i class="fas fa-search"></i></button>
                     </form> 
                 </div>
 
