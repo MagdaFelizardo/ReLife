@@ -19,12 +19,12 @@
                 <nav class="navbar"> 
                     <ul class="list-inline nav-area"> 
                         <li class="list-inline-item nav2">
-                            <a class="nav-link1" href="/reLife/myprofile.php">
+                            <a class="nav-link1" href="myprofile.php">
                                 <i class="far fa-user pr-3"></i>O meu perfil
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="nav-link1" href="/reLife/mydon.php">
+                            <a class="nav-link1" href="mydon.php">
                                 <i class="fas fa-hand-holding-heart pr-3"></i>As minhas doações
                             </a>
                         </li>

@@ -13,14 +13,14 @@
     <header>
         <div id="div_top"></div>
             <img class="logo" src="imgs/infilogo.jpg" alt="logotipo-relife" scrolling="no">
-            <button type="button" class="btn incentivo"><a class="incentivo-link" href="http://localhost/reLife/form.php">DOAR</a></button>
+            <button type="button" class="btn incentivo"><a class="incentivo-link" href="form.php">DOAR</a></button>
             <div>
                 <nav class="navbar col-12"> 
                     <ul class="list-inline"> 
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_proj">O PROJECTO</a> </li>
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_quem">QUEM SOMOS</a></li>
-                        <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="http://localhost/reLife/donations.php">DOAÇÕES</a></li>
-                        <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="http://localhost/reLife/login.php">LOGIN</a></li>
+                        <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="<?=BASE_PATH."/donations"?>">DOAÇÕES</a></li>
+                        <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="#">LOGIN</a></li>
                     </ul>
                 </nav>  
             </div>
@@ -115,7 +115,7 @@
 
         <h3 class="ttlnews my-3">Mantém-te a par!</h3>
         <p class="newstext">Inscreve-te na nossa newsletter e recebe todas as novidades</p>
-            <form class="mb-3" action="/homepage.php" method="post">
+            <form class="mb-3" action="homepage.php" method="post">
                 <div>
                     <span><input class="newsletter" id="form2" type="text" name="email" placeholder="Email"></span>
                     <span id="enviar"><input class="newsletter" type="submit" name="submit" value="">

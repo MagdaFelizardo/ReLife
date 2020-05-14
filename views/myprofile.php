@@ -19,7 +19,7 @@
                 <nav class="navbar"> 
                     <ul class="list-inline nav-area"> 
                         <li class="list-inline-item nav2"><i class="far fa-user pr-3"></i>O meu perfil</li>
-                        <li class="list-inline-item"><a class="nav-link1" href="/reLife/mydon.php"><i class="fas fa-hand-holding-heart pr-3"></i>As minhas doações</a></li>
+                        <li class="list-inline-item"><a class="nav-link1" href="./mydon.php"><i class="fas fa-hand-holding-heart pr-3"></i>As minhas doações</a></li>
                     </ul>
                 </nav>
 
@@ -39,7 +39,7 @@
 
                                 <div class="form-group float-right">
                                     <button type="button" value="" class="btn buttons" id="update-profile" value="">
-                                        <a class="changes-btn" href="/reLife/myprofiledit.php">
+                                        <a class="changes-btn" href="myprofiledit.php">
                                             <i class="fas fa-user-edit"></i>
                                             <span class="btn-txt"> Editar perfil </span>
                                         </a>

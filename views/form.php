@@ -68,7 +68,7 @@
                         </form>
                         <div class="backhome">
                             <button type="button" class="btn btn link">
-                                <a class="back" href="http://localhost/reLife/homepage.php">&#8634</a>
+                                <a class="back" href="homepage.php">&#8634</a>
                             </button>
                         </div>
                     </div> <!-- fecho da segunda coluna -->

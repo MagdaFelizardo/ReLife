@@ -18,7 +18,7 @@
 
                 <nav class="navbar"> 
                     <ul class="list-inline nav-area"> 
-                        <li class="list-inline-item"><a class="nav-link1" href="/reLife/myprofile.php"><i class="far fa-user pr-3"></i>O meu perfil</a></li>
+                        <li class="list-inline-item"><a class="nav-link1" href="./myprofile.php"><i class="far fa-user pr-3"></i>O meu perfil</a></li>
                         <li class="list-inline-item nav2"><i class="fas fa-hand-holding-heart pr-3"></i>As minhas doações</li>
                     </ul>
                 </nav>   
@@ -41,7 +41,7 @@
                         <div class="media-body">
                             <div class="btn pull-right">
                                 <div>
-                                    <a href="/reLife/mydonedit.php">
+                                    <a href="./mydonedit.php">
                                         <button class="buttons" id="update" value="update"><i class="fas fa-pen symbol changes-btn"></i></button>
                                     </a>
                                 </div>

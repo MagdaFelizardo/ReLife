@@ -46,10 +46,10 @@
 
                     <section class="card-footer">
                         <div class="d-flex justify-content-center">
-                            <p>Não tens conta? <a class="links" href="/reLife/register.php">Regista-te! </a></p>
+                            <p>Não tens conta? <a class="links" href="register.php">Regista-te! </a></p>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <a class="links" href="/reLife/forgotpass.php">Esqueceste-te da password?</a>
+                            <a class="links" href="forgotpass.php">Esqueceste-te da password?</a>
                         </div>
                     </section>
                 </div> <!-- end card -->

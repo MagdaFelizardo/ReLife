@@ -77,7 +77,7 @@
 
                     <section class="card-footer">
                         <div class="d-flex justify-content-center">
-                            <p>Já tens conta? <a class="links" href="/reLife/login.php">Entrar </a></p>
+                            <p>Já tens conta? <a class="links" href="login.php">Entrar </a></p>
                         </div>
                     </section>
 

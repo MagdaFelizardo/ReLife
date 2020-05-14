@@ -42,6 +42,10 @@
     font-weight: bold;
 }
 
+.first-letter-cap:first-letter{
+    text-transform: uppercase;
+}
+
 .footer{
     margin-top: 50px;
 }
