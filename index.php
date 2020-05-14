@@ -9,16 +9,17 @@ $url_parts = explode("/", $_SERVER["REQUEST_URI"]);
 define("BASE_PATH", "http://localhost");
 
 // print_r($url_parts);
+// exit;
 
-// url_parts[1] = controllers
-// url_parts[2] = donations / homepage / etc
+// url_parts[1] = controllers (donations / homepage / etc)
+// url_parts[2] = ID, aççao, etc
 
 
 // controller default
 $controller = "homepage";
 
 // white list de controllers
-$controllers = ["homepage", "donations"];
+$controllers = ["homepage", "donations", "dontags", "doncities", "donusers"];
 
 
 //redirecciona para o controller que é suposto

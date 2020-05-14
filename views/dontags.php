@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/donations.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <title>Donations</title>
+        <title>Donations by Category</title>
     </head>
     <body class="img-background img-fluid">
         
@@ -22,32 +22,33 @@
                         <button class="bg-light text-dark btnsearch" type="submit" name="submit" value="enviar"><i class="fas fa-search"></i></button>
                     </form> 
                 </div>
-
-                <h2 class="donationsh2">Listagem de Doações</h2>
+                
+                <h2 class="donationsh2">Doações por Categoria</h2>
             </div>
         </header>
             <main>
-                <?php
-                    foreach($donations as $donation) {
+               
+            <?php
+                    foreach($dontags as $dontag) {
                         echo '
                         <div class="container">
                             <div class="well">
                                 <div class="media">
-                                    <a class="pull-left" href="./?controller=donations&donation_id=' .$donation["donation_id"]. '">
-                                        <img class="media-object" src="' .$donation["photo"]. '" width="200px">
+                                    <a class="pull-left" href="./?controller=donations&donation_id=' .$dontag["donation_id"]. '">
+                                        <img class="media-object" src="' .$dontag["photo"]. '" width="200px">
                                     </a>
                                     <div class="media-body">
-                                        <h1 class="media-heading donation-title text-capitalize">' .$donation["item"]. '</h1>
+                                        <h1 class="media-heading donation-title text-capitalize">' .$dontag["item"]. '</h1>
                                         <div class="mb-4 mt-4">
                                             <i class="glyphicon glyphicon-calendar"></i> 20-04-08 |
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$donation["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$donation["city"]. ' |</a>
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/dontags/'.$donation["category_id"].'"><i class="fas fa-tag"></i> ' .$donation["category"]. '</a>
+                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$dontag["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$dontag["city"]. ' |</a>
+                                            <span class="text-capitalize"><i class="fas fa-tag"></i> ' .$dontag["category"]. '</span>
                                         </div>
-                                        <p class="first-letter-cap">' .$donation["description"]. '</p>
+                                        <p class="first-letter-cap">' .$dontag["description"]. '</p>
                                         <div class="float-right mt-4">
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/donusers/'.$donation["user_id"].' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$donation["name"]. ' | </a>
-                                            <span><i class="glyphicon glyphicon-envelope"></i> ' .$donation["email"]. ' | </span>
-                                            <span><i class="glyphicon glyphicon-phone"></i> ' .$donation["phone"]. ' </span>
+                                            <span><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$dontag["name"]. ' | </span>
+                                            <span><i class="glyphicon glyphicon-envelope"></i> ' .$dontag["email"]. ' | </span>
+                                            <span><i class="glyphicon glyphicon-phone"></i> ' .$dontag["phone"]. ' </span>
                                         </div>
                                     </div>
                                 </div>
