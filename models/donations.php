@@ -15,7 +15,7 @@ class Donation extends Base {
             INNER JOIN users AS u USING(user_id)
             INNER JOIN categories AS c USING(category_id)
         WHERE d.active = 1
-        ORDER BY d.date DESC
+        ORDER BY date DESC
         ");
 
         $query->execute();
@@ -37,7 +37,7 @@ class Donation extends Base {
             INNER JOIN users AS u USING(user_id)
             INNER JOIN categories AS c USING(category_id)
         WHERE d.active = 1 AND c.category_id = ?
-        ORDER BY d.date DESC
+        ORDER BY date DESC
         ");
 
         $query->execute([$id]);
@@ -60,7 +60,7 @@ class Donation extends Base {
             INNER JOIN users AS u USING(user_id)
             INNER JOIN categories AS c USING(category_id)
         WHERE d.active = 1 AND ci.city_id = ?
-        ORDER BY d.date DESC
+        ORDER BY date DESC
         ");
 
         $query->execute([$id]);
@@ -82,7 +82,7 @@ class Donation extends Base {
             INNER JOIN users AS u USING(user_id)
             INNER JOIN categories AS c USING(category_id)
         WHERE d.active = 1 AND u.user_id = ?
-        ORDER BY d.date DESC
+        ORDER BY date DESC
         ");
 
         $query->execute([$id]);
@@ -92,7 +92,7 @@ class Donation extends Base {
         return $donusers;
     }
 
-    public function searchDon($id) {
+    public function searchItem($search) {
 
         $query = $this->db->prepare("
         SELECT 
@@ -103,11 +103,14 @@ class Donation extends Base {
             INNER JOIN cities AS ci USING(city_id)
             INNER JOIN users AS u USING(user_id)
             INNER JOIN categories AS c USING(category_id)
-        WHERE item LIKE '% ? %'
-        ORDER BY d.date DESC
+        WHERE item LIKE ? OR 
+              d.description LIKE ? OR 
+              c.category LIKE ? OR 
+              ci.city LIKE ?
+        ORDER BY date DESC
         ");
 
-        $query->execute([$id]);
+        $query->execute(["%".$search."%", "%".$search."%", "%".$search."%", "%".$search."%"]);
 
         $items = $query->fetchAll( PDO::FETCH_ASSOC );
 

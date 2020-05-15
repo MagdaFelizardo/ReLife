@@ -17,9 +17,9 @@
                 <h1><a href="<?='/'?>"><img class="logo img-fluid" src="../imgs/infilogotrans.png" alt="logotipo"></a></h1>
 
                 <div class="searchbar float-right">
-                    <form class="form-inline" action="" method="get">
-                        <input class="form-control" type="search" placeholder="O que precisas?" aria-label="search">
-                        <button class="bg-light text-dark btnsearch" type="submit" name="search"><i class="fas fa-search"></i></button>
+                    <form class="form-inline" action="/searchitem" method="POST">
+                        <input class="form-control" type="search" name="search" placeholder="O que precisas?" aria-label="search">
+                        <button class="bg-light text-dark btnsearch" type="submit" name="send"><i class="fas fa-search"></i></button>
                     </form> 
                 </div>
 
@@ -39,7 +39,7 @@
                                     <div class="media-body">
                                         <h1 class="media-heading donation-title text-capitalize">' .$donation["item"]. '</h1>
                                         <div class="mb-4 mt-4">
-                                            <i class="glyphicon glyphicon-calendar"></i> 20-04-08 |
+                                            <i class="glyphicon glyphicon-calendar"></i> '.$donation["date"].' |
                                             <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$donation["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$donation["city"]. ' |</a>
                                             <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/dontags/'.$donation["category_id"].'"><i class="fas fa-tag"></i> ' .$donation["category"]. '</a>
                                         </div>

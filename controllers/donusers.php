@@ -8,7 +8,7 @@ if( !is_numeric($url_parts[2])) {
     die("Bad Request");
 };
 
-$donusers = $donationModel->getListByUsers(   $url_parts[2] );
+$donusers = $donationModel->getListByUsers($url_parts[2]);
 
 if( empty($donusers) ) {
     header("HTTP/1.1 404 Not Found");

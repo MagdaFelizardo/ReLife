@@ -40,13 +40,13 @@
                                     <div class="media-body">
                                         <h1 class="media-heading donation-title text-capitalize">' .$dontag["item"]. '</h1>
                                         <div class="mb-4 mt-4">
-                                            <i class="glyphicon glyphicon-calendar"></i> 20-04-08 |
+                                            <i class="glyphicon glyphicon-calendar"></i> '.$dontag["date"].' |
                                             <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$dontag["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$dontag["city"]. ' |</a>
                                             <span class="text-capitalize"><i class="fas fa-tag"></i> ' .$dontag["category"]. '</span>
                                         </div>
                                         <p class="first-letter-cap">' .$dontag["description"]. '</p>
                                         <div class="float-right mt-4">
-                                            <span><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$dontag["name"]. ' | </span>
+                                        <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/donusers/'.$dontag["user_id"].' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$dontag["name"]. ' | </a>
                                             <span><i class="glyphicon glyphicon-envelope"></i> ' .$dontag["email"]. ' | </span>
                                             <span><i class="glyphicon glyphicon-phone"></i> ' .$dontag["phone"]. ' </span>
                                         </div>

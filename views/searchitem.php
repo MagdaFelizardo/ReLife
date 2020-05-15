@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/donations.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <title>Donations by City</title>
+        <title>Search Item</title>
     </head>
     <body class="img-background img-fluid">
         
@@ -16,39 +16,31 @@
             <div class="container">
                 <h1><a href="<?='/'?>"><img class="logo img-fluid" src="../imgs/infilogotrans.png" alt="logotipo"></a></h1>
 
-                <div class="searchbar float-right">
-                    <form class="form-inline" action="" method="get">
-                        <input class="form-control" type="search" placeholder="O que precisas?" aria-label="search">
-                        <button class="bg-light text-dark btnsearch" type="submit" name="send" value="enviar"><i class="fas fa-search"></i></button>
-                    </form> 
-                </div>
-                
-                <h2 class="donationsh2">Doações por Cidade</h2>
+                <h2 class="donationsh2">Resultados de Pesquisa</h2>
             </div>
         </header>
             <main>
-               
-            <?php
-                    foreach($doncities as $doncity) {
+                <?php
+                    foreach($items as $item) {
                         echo '
                         <div class="container">
                             <div class="well">
                                 <div class="media">
-                                    <a class="pull-left" href="./?controller=donations&donation_id=' .$doncity["donation_id"]. '">
-                                        <img class="media-object" src="' .$doncity["photo"]. '" width="200px">
+                                    <a class="pull-left" href="./?controller=donations&donation_id=' .$item["donation_id"]. '">
+                                        <img class="media-object" src="' .$item["photo"]. '" width="200px">
                                     </a>
                                     <div class="media-body">
-                                        <h1 class="media-heading donation-title text-capitalize">' .$doncity["item"]. '</h1>
+                                        <h1 class="media-heading donation-title text-capitalize">' .$item["item"]. '</h1>
                                         <div class="mb-4 mt-4">
-                                            <i class="glyphicon glyphicon-calendar"></i> '.$doncity["date"].' |
-                                            <span class="text-capitalize"><i class="glyphicon glyphicon-home"></i> ' .$doncity["city"]. ' |</span>
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/dontags/'.$doncity["category_id"].'"><i class="fas fa-tag"></i> ' .$doncity["category"]. '</a>
+                                            <i class="glyphicon glyphicon-calendar"></i> '.$item["date"].' |
+                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$item["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$item["city"]. ' |</a>
+                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/dontags/'.$item["category_id"].'"><i class="fas fa-tag"></i> ' .$item["category"]. '</a>
                                         </div>
-                                        <p class="first-letter-cap">' .$doncity["description"]. '</p>
+                                        <p class="first-letter-cap">' .$item["description"]. '</p>
                                         <div class="float-right mt-4">
-                                        <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/donusers/'.$doncity["user_id"].' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$doncity["name"]. ' | </a>
-                                            <span><i class="glyphicon glyphicon-envelope"></i> ' .$doncity["email"]. ' | </span>
-                                            <span><i class="glyphicon glyphicon-phone"></i> ' .$doncity["phone"]. ' </span>
+                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/donusers/'.$item["user_id"].' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$item["name"]. ' | </a>
+                                            <span><i class="glyphicon glyphicon-envelope"></i> ' .$item["email"]. ' | </span>
+                                            <span><i class="glyphicon glyphicon-phone"></i> ' .$item["phone"]. ' </span>
                                         </div>
                                     </div>
                                 </div>

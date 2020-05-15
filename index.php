@@ -19,7 +19,7 @@ define("BASE_PATH", "http://localhost");
 $controller = "homepage";
 
 // white list de controllers
-$controllers = ["homepage", "donations", "dontags", "doncities", "donusers"];
+$controllers = ["homepage", "donations", "dontags", "doncities", "donusers", "searchitem"];
 
 
 //redirecciona para o controller que é suposto

@@ -8,6 +8,14 @@ if( $url_parts[1] != "donations") {
     die("Bad Request");
 };
 
-$donations = $donationModel->getlist();
 
-require("./views/donations.php");
+if(isset($_POST['search'])){
+
+    $items = $donationModel->searchItem( $_POST['search']);
+
+    require("./views/searchitem.php");
+}else{
+    $donations = $donationModel->getlist();
+
+    require("./views/donations.php");
+}
