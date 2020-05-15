@@ -115,11 +115,10 @@
 
         <h3 class="ttlnews my-3">Mantém-te a par!</h3>
         <p class="newstext">Inscreve-te na nossa newsletter e recebe todas as novidades</p>
-            <form class="mb-3" action="homepage.php" method="post">
+            <form class="mb-3" action="<?=BASE_PATH?>" method="post">
                 <div>
                     <span><input class="newsletter" id="form2" type="text" name="email" placeholder="Email"></span>
-                    <span id="enviar"><input class="newsletter" type="submit" name="send" value="">
-                    </span>
+                    <button class="newsletter" type="submit" name="send" value=""><i class="far fa-paper-plane"></i></button>
                 </div>
             </form>
     </footer>   

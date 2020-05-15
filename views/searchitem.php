@@ -17,45 +17,54 @@
                 <h1><a href="<?='/'?>"><img class="logo img-fluid" src="../imgs/infilogotrans.png" alt="logotipo"></a></h1>
 
                 <div class="searchbar float-right">
-                    <form class="form-inline" action="/searchitem" method="POST">
+                    <form class="form-inline" action="/searchitem/" method="GET">
                         <input class="form-control" type="search" name="search" placeholder="O que precisas?" aria-label="search">
                         <button class="bg-light text-dark btnsearch" type="submit" name="send"><i class="fas fa-search"></i></button>
                     </form> 
                 </div>
+<?php
+if(!empty($items)) {
+    foreach($items as $item) {
+        echo '
 
                 <h2 class="donationsh2">Resultados de Pesquisa</h2>
             </div>
         </header>
-            <main>
-                <?php
-                    foreach($items as $item) {
-                        echo '
-                        <div class="container">
-                            <div class="well">
-                                <div class="media">
-                                    <a class="pull-left" href="./?controller=donations&donation_id=' .$item["donation_id"]. '">
-                                        <img class="media-object" src="' .$item["photo"]. '" width="200px">
-                                    </a>
-                                    <div class="media-body">
-                                        <h1 class="media-heading donation-title text-capitalize">' .$item["item"]. '</h1>
-                                        <div class="mb-4 mt-4">
-                                            <i class="glyphicon glyphicon-calendar"></i> '.$item["date"].' |
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$item["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$item["city"]. ' |</a>
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/dontags/'.$item["category_id"].'"><i class="fas fa-tag"></i> ' .$item["category"]. '</a>
-                                        </div>
-                                        <p class="first-letter-cap">' .$item["description"]. '</p>
-                                        <div class="float-right mt-4">
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/donusers/'.$item["user_id"].' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$item["name"]. ' | </a>
-                                            <span><i class="glyphicon glyphicon-envelope"></i> ' .$item["email"]. ' | </span>
-                                            <span><i class="glyphicon glyphicon-phone"></i> ' .$item["phone"]. ' </span>
-                                        </div>
-                                    </div>
+            <main>              
+                <div class="container">
+                    <div class="well">
+                        <div class="media">
+                            <a class="pull-left" href="./?controller=donations&donation_id=' .$item["donation_id"]. '">
+                                <img class="media-object" src="' .$item["photo"]. '" width="200px">
+                            </a>
+                            <div class="media-body">
+                                <h1 class="media-heading donation-title text-capitalize">' .$item["item"]. '</h1>
+                                <div class="mb-4 mt-4">
+                                    <i class="glyphicon glyphicon-calendar"></i> '.$item["date"].' |
+                                    <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$item["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$item["city"]. ' |</a>
+                                    <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/dontags/'.$item["category_id"].'"><i class="fas fa-tag"></i> ' .$item["category"]. '</a>
                                 </div>
-                            </div>  <!-- well   -->
-                        </div> <!-- end container -->
-                        ';
-                    }
-                ?>
+                                <p class="first-letter-cap">' .$item["description"]. '</p>
+                                <div class="float-right mt-4">
+                                    <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/donusers/'.$item["user_id"].' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$item["name"]. ' | </a>
+                                    <span><i class="glyphicon glyphicon-envelope"></i> ' .$item["email"]. ' | </span>
+                                    <span><i class="glyphicon glyphicon-phone"></i> ' .$item["phone"]. ' </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  <!-- well   -->
+                </div> <!-- end container -->
+                ';
+    } 
+}else{ echo 
+    '
+            <div class="text-center noresults">
+                <i class="fas fa-poo imgs-noresults"></i>
+                Ups! Não encontrámos resultados! Tenta de novo 
+                <i class="far fa-grin-beam-sweat imgs-noresults"></i>
+            </div>';
+    }
+?>
             </main>
 
             <footer class="footer">

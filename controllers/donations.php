@@ -5,7 +5,7 @@ $donationModel= new Donation();
 
 if(isset($_GET['search'])){
 
-    $items = $donationModel->searchItem( $_GET['search']);
+    $items = $donationModel->searchItem($_GET['search']);
 
     require("./views/searchitem.php");
 

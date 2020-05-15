@@ -59,6 +59,16 @@
     /* #8B8878 !important; */
 }
 
+.noresults{
+    margin-top: 15%;
+    font-size: large;
+}
+
+.imgs-noresults{
+    font-size: 200%;
+}
+
+
 .pagination > li > a
 {
     background-color: white;

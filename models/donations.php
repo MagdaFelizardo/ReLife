@@ -115,6 +115,7 @@ class Donation extends Base {
         $items = $query->fetchAll( PDO::FETCH_ASSOC );
 
         return $items;
+
     }
 
 
