@@ -19,7 +19,7 @@
                     <ul class="list-inline"> 
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_proj">O PROJECTO</a> </li>
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_quem">QUEM SOMOS</a></li>
-                        <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="<?=BASE_PATH."/donations"?>">DOAÇÕES</a></li>
+                        <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="<?=BASE_PATH."/donations/"?>">DOAÇÕES</a></li>
                         <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="#">LOGIN</a></li>
                     </ul>
                 </nav>  
@@ -118,7 +118,7 @@
             <form class="mb-3" action="homepage.php" method="post">
                 <div>
                     <span><input class="newsletter" id="form2" type="text" name="email" placeholder="Email"></span>
-                    <span id="enviar"><input class="newsletter" type="submit" name="submit" value="">
+                    <span id="enviar"><input class="newsletter" type="submit" name="send" value="">
                     </span>
                 </div>
             </form>

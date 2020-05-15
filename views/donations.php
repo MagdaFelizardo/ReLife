@@ -17,7 +17,7 @@
                 <h1><a href="<?='/'?>"><img class="logo img-fluid" src="../imgs/infilogotrans.png" alt="logotipo"></a></h1>
 
                 <div class="searchbar float-right">
-                    <form class="form-inline" action="/searchitem" method="POST">
+                    <form class="form-inline" action="/searchitem/" method="GET">
                         <input class="form-control" type="search" name="search" placeholder="O que precisas?" aria-label="search">
                         <button class="bg-light text-dark btnsearch" type="submit" name="send"><i class="fas fa-search"></i></button>
                     </form> 
