@@ -13,14 +13,14 @@
     <header>
         <div id="div_top"></div>
             <img class="logo" src="imgs/infilogo.jpg" alt="logotipo-relife" scrolling="no">
-            <button type="button" class="btn incentivo"><a class="incentivo-link" href="form.php">DOAR</a></button>
+            <button type="button" class="btn incentivo"><a class="incentivo-link" href="<?=BASE_PATH."/login/"?>">DOAR</a></button>
             <div>
                 <nav class="navbar col-12"> 
                     <ul class="list-inline"> 
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_proj">O PROJECTO</a> </li>
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_quem">QUEM SOMOS</a></li>
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="<?=BASE_PATH."/donations/"?>">DOAÇÕES</a></li>
-                        <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="#">LOGIN</a></li>
+                        <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="<?=BASE_PATH."/login/"?>">LOGIN</a></li>
                     </ul>
                 </nav>  
             </div>

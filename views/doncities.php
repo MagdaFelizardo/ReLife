@@ -17,7 +17,7 @@
                 <h1><a href="<?='/'?>"><img class="logo img-fluid" src="../imgs/infilogotrans.png" alt="logotipo"></a></h1>
 
                 <div class="searchbar float-right">
-                    <form class="form-inline" action="/searchitem" method="GET">
+                    <form class="form-inline" action="/searchitem/" method="GET">
                         <input class="form-control" type="search" name="search" placeholder="O que precisas?" aria-label="search">
                         <button class="bg-light text-dark btnsearch" type="submit" name="send"><i class="fas fa-search"></i></button>
                     </form> 
@@ -53,10 +53,16 @@
                                     </div>
                                 </div>
                             </div>  <!-- well   -->
+                                <div class="backdonations">
+                                    <button type="button" class="btn btn link">
+                                        <a class="back" href="'.BASE_PATH.'/donations/">&#8634</a>
+                                    </button>
+                                </div>
                         </div> <!-- end container -->
                         ';
                     }
                 ?>
+                
             </main>
 
             <footer class="footer">

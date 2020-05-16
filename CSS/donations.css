@@ -60,13 +60,33 @@
 }
 
 .noresults{
-    margin-top: 15%;
+    margin-top: 3%;
     font-size: large;
 }
 
 .imgs-noresults{
     font-size: 200%;
 }
+
+.backdonations{
+    text-align: right;
+    padding-right: 1%;
+}
+
+.backdonations1{
+    text-align: center;
+    margin-top: 5%;
+
+}
+
+.back{
+    font-size: 4rem;
+    color:rgb(0, 139, 139);
+}
+a:hover {
+    color: rgb(167, 4, 4);
+    text-decoration: none;
+  }
 
 
 .pagination > li > a

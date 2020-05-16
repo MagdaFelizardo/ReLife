@@ -110,7 +110,10 @@ class Donation extends Base {
         ORDER BY date DESC
         ");
 
-        $query->execute(["%".$search."%", "%".$search."%", "%".$search."%", "%".$search."%"]);
+        $query->execute(["%".strip_tags(trim($search))."%", 
+                         "%".strip_tags(trim($search))."%", 
+                         "%".strip_tags(trim($search))."%", 
+                         "%".strip_tags(trim($search))."%"]);
 
         $items = $query->fetchAll( PDO::FETCH_ASSOC );
 
