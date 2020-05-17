@@ -14,7 +14,7 @@
         
         <header>
             <div class="container">
-                <h1><a href="homepage.php"><img class="logo img-fluid" src="imgs/infilogo.jpg" alt="logotipo"></a></h1>
+                <h1><a href="<?='/'?>"><img class="logo img-fluid" src="imgs/infilogo.jpg" alt="logotipo"></a></h1>
 
                 <nav class="navbar"> 
                     <ul class="list-inline nav-area"> 

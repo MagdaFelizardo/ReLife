@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/login-register.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <title>Register</title>
+        <title>Register-Failed</title>
     </head>
 
     <body>
@@ -22,6 +22,8 @@
                     <section class="card-header"><h2>Criar Conta</h2></section>
                     
                     <section class="card-body">
+                        <div class="text-center mb-4 text-danger">O registo falhou. Por favor verifica os dados que introduziste e tenta de novo.</div>
+
                         <form action="<?=BASE_PATH."/register/"?>" method="POST">
 
                             <div class="input-group form-group">

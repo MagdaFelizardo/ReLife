@@ -22,6 +22,7 @@
                     <section class="card-header"><h2>Entrar</h2></section>
                     
                     <section class="card-body">
+                        <div class="text-center mb-4 text-danger">O login falhou. Por favor verifica os dados que introduziste e tenta de novo.</div>
 
                         <form action="<?=BASE_PATH."/login/"?>" method="POST">
 

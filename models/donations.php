@@ -94,6 +94,8 @@ class Donation extends Base {
 
     public function searchItem($search) {
 
+        $search = $this->sanitizeSearch($search);
+
         $query = $this->db->prepare("
         SELECT 
             d.donation_id, d.item, d.description, d.photo, d.date, 
@@ -110,10 +112,7 @@ class Donation extends Base {
         ORDER BY date DESC
         ");
 
-        $query->execute(["%".strip_tags(trim($search))."%", 
-                         "%".strip_tags(trim($search))."%", 
-                         "%".strip_tags(trim($search))."%", 
-                         "%".strip_tags(trim($search))."%"]);
+        $query->execute(["%".$search."%", "%".$search."%", "%".$search."%", "%".$search."%"]);
 
         $items = $query->fetchAll( PDO::FETCH_ASSOC );
 
