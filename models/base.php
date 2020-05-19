@@ -17,5 +17,10 @@ class Base {
         return $input;
     }
 
+    public function isValidUser($data) {
+        if(isset($_SESSION["user_id"])){
+            $user_id = $_SESSION["user_id"];
+        }
+        return $user_id ?? false;
+    }
 }
-

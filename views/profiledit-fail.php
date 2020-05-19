@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/donations.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <title>Edit my Profile</title>
+        <title>Edit Profile Failed</title>
     </head>
     <body>
         
@@ -44,6 +44,8 @@
                             </section>
 
                             <div class="media-body">
+
+                            <div class="text-right mb-4 text-danger">Não foi possível alterar os teus dados. Por favor verifica o que introduziste e tenta de novo.</div>
                                 
                                 <div class="edit">
                                     <form action="<?='/myprofiledit/'?>" method="POST">

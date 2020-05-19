@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/donations.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <title>Edit my Profile</title>
+        <title>Change Password</title>
     </head>
     <body>
         
@@ -46,40 +46,25 @@
                             <div class="media-body">
                                 
                                 <div class="edit">
-                                    <form action="<?='/myprofiledit/'?>" method="POST">
+                                    <form action="<?='/changepass/'?>" method="POST">
 
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                                <input type="text" name="name" class="form-control" value="<?php echo $user["name"] ?>" required>    
+                                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                <input type="password" name="password" class="form-control" placeholder="Nova password" required>
                                             </div>
                                         </div>
 
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                                <input type="text" name="phone" class="form-control" value="<?php echo $user["phone"] ?>">  
-                                            </div>  
-                                        </div>
-
-                                        <div class="input-group form-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fas fa-home"></i></span>
-                                                <select id="cities" list="cities" name="city_id" class="form-control">
-                                                    <?php 
-                                                        foreach($cities as $city){
-                                                            echo '
-                                                                <option value="'.$city["city_id"].'">'.$city["city"].'</option>
-                                                                '
-                                                            ;} 
-                                                    ?>         
-                                                </select>
-                                            </div>  
+                                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                <input type="password" name="rep-password" class="form-control" placeholder="Repetir nova password" required>
+                                            </div>
                                         </div>
 
                                         <div class="text-center">
                                             <div class="form-group">
-                                                <button type="submit" name="update-profile" class="btn buttons mt-4 changes-btn" id="update-profile" ><i class="far fa-save"></i><span class="btn-txt"> Gravar perfil </span></button>
+                                                <button type="submit" name="changepass" class="btn buttons mt-4 changes-btn" id="changepass" ><i class="far fa-save"></i><span class="btn-txt"> Alterar a password </span></button>
                                             </div>
                                         </div>
                                     </form>
