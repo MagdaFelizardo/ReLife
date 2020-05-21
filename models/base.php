@@ -53,7 +53,7 @@ class Base {
                 return $file_name;
             }
             else{
-                die("upload de foto falhou");
+                return 0;
             }
         }
     }

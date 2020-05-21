@@ -125,37 +125,49 @@ class Donation extends Base {
 
         $data = $this->sanitizer($data);
 
-        $photo = $this->sanitizePhoto($_FILE["photo"]);
+        $photo = $this->sanitizePhoto($_FILES["photo"]);
 
-        $donation_date = date('Y-m-d');
-        $user_id = $_SESSION["user_id"];
-        $pending_donation = 0;
+        if($photo === 0){
 
-        if(
-            !empty($data["item"]) &&
-            !empty($data["category_id"]) &&
-            !empty($data["description"]) 
-        ) {
-            $query = $this->db->prepare("
-                INSERT INTO donations
-                (item, description, photo, donation_date, category_id, city_id, user_id, active) 
-                VALUES(?, ?, ?, ?, ?, ?, ?, ?)
-            ");
-            
-            $query->execute([
-                $data["item"],
-                $data["description"],
-                $photo, 
-                $donation_date,
-                $data["category_id"],
-                $data["city_id"],
-                $user_id,
-                $pending_donation
-            ]);
+            header("HTTP/1.1 401 Unauthorized");
+            require("views/formdon-photofail.php");
+            die();
+              
+        }else{
 
-            return $query;
-            
-        }        
+            $donation_date = date('Y-m-d');
+            $user_id = $_SESSION["user_id"];
+            $pending_donation = 0;
+
+            if(
+                !empty($data["item"]) &&
+                !empty($data["category_id"]) &&
+                !empty($data["description"]) 
+            ) {
+                $query = $this->db->prepare("
+                    INSERT INTO donations
+                    (item, description, photo, donation_date, category_id, city_id, user_id, active) 
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?)
+                ");
+                
+                $query->execute([
+                    $data["item"],
+                    $data["description"],
+                    $photo, 
+                    $donation_date,
+                    $data["category_id"],
+                    $data["city_id"],
+                    $user_id,
+                    $pending_donation
+                ]);
+
+                return $query;
+            }
+            else{
+                return false;
+            }
+        }
+        
     }
 
 }

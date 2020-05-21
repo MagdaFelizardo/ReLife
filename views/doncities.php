@@ -35,7 +35,7 @@
                             <div class="well">
                                 <div class="media">
                                     <a class="pull-left" href="./?controller=donations&donation_id=' .$doncity["donation_id"]. '">
-                                        <img class="media-object" src="' .$doncity["photo"]. '" width="200px">
+                                        <img class="media-object" src="../imgs/uploads/' .$doncity["photo"]. '" width="200px">
                                     </a>
                                     <div class="media-body">
                                         <h1 class="media-heading donation-title text-capitalize">' .$doncity["item"]. '</h1>
