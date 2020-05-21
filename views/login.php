@@ -23,7 +23,7 @@
                     
                     <section class="card-body">
 
-                        <form action="<?=BASE_PATH."/login/"?>" method="POST">
+                        <form action="<?= isset($url_parts[3]) ? '/login/?source=formdon/' : '/login/' ?>" method="POST">
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">

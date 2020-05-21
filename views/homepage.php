@@ -13,7 +13,7 @@
     <header>
         <div id="div_top"></div>
             <img class="logo" src="imgs/infilogo.jpg" alt="logotipo-relife" scrolling="no">
-            <button type="button" class="btn incentivo"><a class="incentivo-link" href="<?= isset($_SESSION["user_id"]) ? '/formdon/' : '/login/' ?>">DOAR</a></button>
+            <button type="button" class="btn incentivo"><a class="incentivo-link" href="<?= isset($_SESSION["user_id"]) ? '/formdon/' : '/login/?source=formdon/' ?>">DOAR</a></button>
             <div>
                 <nav class="navbar col-12"> 
                     <ul class="list-inline"> 
