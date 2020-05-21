@@ -1,9 +1,11 @@
 <?php
 require("./models/donations.php");
+require("./models/users.php");
 
 $donationModel= new Donation();
+$userModel= new User();
 
-$donationModel->getUser($_SESSION["user_id"]);
+$user = $userModel->getUser($_SESSION["user_id"]);
 
 if(isset($_POST["sendon"])) {
 

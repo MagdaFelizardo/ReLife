@@ -50,23 +50,21 @@
                                     Outros</label>
                                 </span>
                             </div>
-                            <div class="form-group">
-                                <label for="usercity">Item 
+                            <span class="form-group">
                                 <input type="hidden" class="form-control-inline" name="city_id" value="<?= $user["city_id"] ?>">
-                                </label>
-                            </div>
+                            </span>
                             <div class="form-group description">
                                 <label for="description">Descrição 
                                 <textarea class="form-control description" cols="70" rows="3" name="description" placeholder="Dá alguma informação adicional"></textarea>
                                 </label>
                             </div>
-                            <!-- <div class="form-group photo">
+                            <div class="form-group photo">
                                 <div class="form-inline">    
                                     <label> Fotografia
-                                    <input type="file" accept=".png, .jpg, .jpeg" class="form-control-file" name="photo" id="choosephoto">
+                                    <input type="file" accept=".jpeg, .jpg, .png, .webp, .gif, .bmp" class="form-control-file" name="photo" id="choosephoto">
                                     </label>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="form-group">
                                 <button class="btnsendformdon" type="submit" id="sendformdon" name="sendon">Doar</button>
                             </div>

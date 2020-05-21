@@ -1,5 +1,5 @@
 <?php
-require("base.php");
+require_once("base.php");
 
 class Donation extends Base {
 
@@ -15,7 +15,7 @@ class Donation extends Base {
             INNER JOIN users AS u USING(user_id)
             INNER JOIN categories AS c USING(category_id)
         WHERE d.active = 1
-        ORDER BY date DESC
+        ORDER BY donation_date DESC
         ");
 
         $query->execute();
@@ -37,7 +37,7 @@ class Donation extends Base {
             INNER JOIN users AS u USING(user_id)
             INNER JOIN categories AS c USING(category_id)
         WHERE d.active = 1 AND c.category_id = ?
-        ORDER BY date DESC
+        ORDER BY donation_date DESC
         ");
 
         $query->execute([$id]);
@@ -60,7 +60,7 @@ class Donation extends Base {
             INNER JOIN users AS u USING(user_id)
             INNER JOIN categories AS c USING(category_id)
         WHERE d.active = 1 AND ci.city_id = ?
-        ORDER BY date DESC
+        ORDER BY donation_date DESC
         ");
 
         $query->execute([$id]);
@@ -82,7 +82,7 @@ class Donation extends Base {
             INNER JOIN users AS u USING(user_id)
             INNER JOIN categories AS c USING(category_id)
         WHERE d.active = 1 AND u.user_id = ?
-        ORDER BY date DESC
+        ORDER BY donation_date DESC
         ");
 
         $query->execute([$id]);
@@ -109,7 +109,7 @@ class Donation extends Base {
               d.description LIKE ? OR 
               c.category LIKE ? OR 
               ci.city LIKE ?
-        ORDER BY date DESC
+        ORDER BY donation_date DESC
         ");
 
         $query->execute(["%".$search."%", "%".$search."%", "%".$search."%", "%".$search."%"]);
@@ -123,31 +123,29 @@ class Donation extends Base {
 
     public function giveDonation($data) {
 
-        // $data = $this->sanitizer($data);
+        $data = $this->sanitizer($data);
+
+        $photo = $this->sanitizePhoto($_FILE["photo"]);
+
         $donation_date = date('Y-m-d');
         $user_id = $_SESSION["user_id"];
         $pending_donation = 0;
 
-        // if(
-        //     !empty($data["name"]) &&
-        //     !empty($data["email"]) &&
-        //     filter_var($data["email"], FILTER_VALIDATE_EMAIL) &&
-        //     !empty($data["password"]) &&
-        //     mb_strlen($data["password"]) > 5 &&
-        //     mb_strlen($data["password"]) <= 1000 &&
-        //     $data["password"] === $data["rep-password"]
-        // ) {
-
+        if(
+            !empty($data["item"]) &&
+            !empty($data["category_id"]) &&
+            !empty($data["description"]) 
+        ) {
             $query = $this->db->prepare("
                 INSERT INTO donations
-                (item, description, donation_date, category_id, city_id, user_id, active) 
-                VALUES(?, ?, ?, ?, ?, ?)
+                (item, description, photo, donation_date, category_id, city_id, user_id, active) 
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?)
             ");
             
             $query->execute([
                 $data["item"],
                 $data["description"],
-                // $data["photo"], 
+                $photo, 
                 $donation_date,
                 $data["category_id"],
                 $data["city_id"],
@@ -157,7 +155,7 @@ class Donation extends Base {
 
             return $query;
             
-        // }        
+        }        
     }
 
-};
+}
