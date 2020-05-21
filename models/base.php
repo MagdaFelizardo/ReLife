@@ -23,4 +23,23 @@ class Base {
         }
         return $user_id ?? false;
     }
+
+    public function getUser($data) {
+
+        $query = $this->db->prepare("
+        SELECT 
+            u.user_id, u.name, u.email, u.password, u.phone, u.city_id, u.active_user, u.register_date, ci.city
+        FROM users AS u
+            INNER JOIN cities AS ci USING(city_id)
+        WHERE u.active_user = 1 AND u.user_id = ?
+        ");
+
+        $query->execute([$data]);
+
+        $user = $query->fetch( PDO::FETCH_ASSOC );
+
+        return $user;
+
+    }
+
 }

@@ -88,24 +88,6 @@ class User extends Base {
     }
 
 
-    public function getUser($data) {
-
-        $query = $this->db->prepare("
-        SELECT 
-            u.user_id, u.name, u.email, u.password, u.phone, u.city_id, u.active_user, u.register_date, ci.city
-        FROM users AS u
-            INNER JOIN cities AS ci USING(city_id)
-        WHERE u.active_user = 1 AND u.user_id = ?
-        ");
-
-        $query->execute([$data]);
-
-        $user = $query->fetch( PDO::FETCH_ASSOC );
-
-        return $user;
-
-    }
-
 
 
     public function updateUser($data){
@@ -173,21 +155,14 @@ class User extends Base {
 
     }
 
-    public function delete($data) {
+    public function deleteUser($data) {
 
         $user_id = $_SESSION["user_id"];
-
         $query = $this->db->prepare("
         DELETE FROM users
         WHERE user_id = ?
         ");
-
-        $query->execute($user_id);
-
+        $query->execute([$user_id]);
         return true;
-    
     }
-
-
-
 }

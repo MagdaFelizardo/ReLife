@@ -40,7 +40,7 @@
                                     <div class="media-body">
                                         <h1 class="media-heading donation-title text-capitalize">' .$dontag["item"]. '</h1>
                                         <div class="mb-4 mt-4">
-                                            <i class="glyphicon glyphicon-calendar"></i> '.$dontag["date"].' |
+                                            <i class="glyphicon glyphicon-calendar"></i> '.$dontag["donation_date"].' |
                                             <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$dontag["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$dontag["city"]. ' |</a>
                                             <span class="text-capitalize"><i class="fas fa-tag"></i> ' .$dontag["category"]. '</span>
                                         </div>

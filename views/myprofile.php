@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/donations.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <!-- <script src="../js/delete-user.js"></script> -->
         <title>My Profile</title>
     </head>
     <body>
@@ -86,15 +87,16 @@
 
                                 </div> <!-- end profile -->
 
-                                <div class="float-right changes-btn">
+
+                                <div class="float-right">
                                     <div class="btn-block">
-                                        <button type="button" class="buttons" id="delete-profile" value="">
+                                        <a class="delink" href="/deleteaccount/">
                                             <i class="fas fa-user-times"></i>
-                                            <span class="btn-txt">Apagar perfil</span>
-                                        </button>
+                                            <span class="btn-txt">Apagar conta</span>
+                                        </a>
                                     </div>
                                 </div>
-                                    
+       
                             </div> <!-- end mediabody -->
                         </div>
                     </div>  <!-- well   -->

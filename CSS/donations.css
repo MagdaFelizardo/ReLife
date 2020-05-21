@@ -88,6 +88,11 @@ a:hover {
     text-decoration: none;
   }
 
+.delink{
+    color:  rgb(0, 145, 145);
+    text-decoration: none;
+}
+
 
 .pagination > li > a
 {

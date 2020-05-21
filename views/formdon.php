@@ -4,8 +4,8 @@
         <meta charset="UTF-8"/> 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="css/mycss.css">
-        <link rel="stylesheet" type="text/css" href="css/form.css">
+        <link rel="stylesheet" type="text/css" href="../css/mycss.css">
+        <link rel="stylesheet" type="text/css" href="../css/form.css">
         <title>Nova Doação</title>
     </head>
     <body class="img-background img-fluid"> 
@@ -15,55 +15,60 @@
                     <div class="col-6"></div>
                     <div class="col-6">
                     <h1 class="titledon">Nova Doação</h1>
-                        <form class="form" id="formdon" action="/form.php" method="post" enctype="multipart/form-data">
+                        <form class="form" action="<?=BASE_PATH."/formdon/"?>" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="item">Item 
-                                <input type="text" class="form-control-inline" size="15" name="item" id="item" value="" placeholder="O que vais doar?" required>
+                                <input type="text" class="form-control-inline" size="15" name="item" id="item" placeholder="O que vais doar?" required>
                                 </label>
                             </div>
                             <div class="form-check" required>
                                 <span>
                                     <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="tags" id="tagfurniture" value="furniture">
+                                        <input type="radio" class="form-check-input" name="category_id" value="1">
                                     Mobiliário</label>
                                     <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="tags" id="tagtextiles" value="textiles">
+                                        <input type="radio" class="form-check-input" name="category_id" value="2">
                                     Textéis</label>
                                     <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="tags" id="tagobjects" value="objects">
+                                        <input type="radio" class="form-check-input" name="category_id" value="3">
                                     Utensílios</label>
                                     <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="tags" id="tagdecor" value="decor">
+                                        <input type="radio" class="form-check-input" name="category_id" value="4">
                                     Decoração</label>
                                     <br>
                                     <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="tags" id="tagelectro" value="electro">
+                                        <input type="radio" class="form-check-input" name="category_id" value="5">
                                     Electrodomésticos</label>
                                     <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="tags" id="taghigbeauty" value="higbeauty">
+                                        <input type="radio" class="form-check-input" name="category_id" value="6">
                                     Higiene/Beleza</label>
                                     <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="tags" id="tagbooks" value="books">
+                                        <input type="radio" class="form-check-input" name="category_id" value="7">
                                     Livros</label>
                                     <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="tags" id="tagother" value="other">
+                                        <input type="radio" class="form-check-input" name="category_id" value="8">
                                     Outros</label>
                                 </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="usercity">Item 
+                                <input type="hidden" class="form-control-inline" name="city_id" value="<?= $user["city_id"] ?>">
+                                </label>
                             </div>
                             <div class="form-group description">
                                 <label for="description">Descrição 
                                 <textarea class="form-control description" cols="70" rows="3" name="description" placeholder="Dá alguma informação adicional"></textarea>
                                 </label>
                             </div>
-                            <div class="form-group photo">
+                            <!-- <div class="form-group photo">
                                 <div class="form-inline">    
                                     <label> Fotografia
-                                    <input type="file" accept=".png, .jpg, .jpeg" class="form-control-file" name="photo" id="choosephoto" value="">
+                                    <input type="file" accept=".png, .jpg, .jpeg" class="form-control-file" name="photo" id="choosephoto">
                                     </label>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
-                                <button class="btnsendformdon" type="submit" id="sendformdon">Doar</button>
+                                <button class="btnsendformdon" type="submit" id="sendformdon" name="sendon">Doar</button>
                             </div>
                         </form>
                         <div class="backhome">

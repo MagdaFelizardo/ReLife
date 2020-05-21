@@ -7,7 +7,7 @@ class Donation extends Base {
 
         $query = $this->db->prepare("
         SELECT 
-            d.donation_id, d.item, d.description, d.photo, d.date, 
+            d.donation_id, d.item, d.description, d.photo, d.donation_date, 
             u.user_id, u.name, u.email, u.phone, 	
             c.category_id, c.category, ci.city_id, ci.city
         FROM donations AS d
@@ -29,7 +29,7 @@ class Donation extends Base {
 
         $query = $this->db->prepare("
         SELECT 
-            d.donation_id, d.item, d.description, d.photo, d.date, 
+            d.donation_id, d.item, d.description, d.photo, d.donation_date, 
             u.user_id, u.name, u.email, u.phone, 	
             c.category_id, c.category, ci.city_id, ci.city
         FROM donations AS d
@@ -52,7 +52,7 @@ class Donation extends Base {
 
         $query = $this->db->prepare("
         SELECT 
-            d.donation_id, d.item, d.description, d.photo, d.date, 
+            d.donation_id, d.item, d.description, d.photo, d.donation_date, 
             u.user_id, u.name, u.email, u.phone, 	
             c.category_id, c.category, ci.city_id, ci.city
         FROM donations AS d
@@ -74,7 +74,7 @@ class Donation extends Base {
 
         $query = $this->db->prepare("
         SELECT 
-            d.donation_id, d.item, d.description, d.photo, d.date, 
+            d.donation_id, d.item, d.description, d.photo, d.donation_date, 
             u.user_id, u.name, u.email, u.phone, 	
             c.category_id, c.category, ci.city_id, ci.city
         FROM donations AS d
@@ -98,7 +98,7 @@ class Donation extends Base {
 
         $query = $this->db->prepare("
         SELECT 
-            d.donation_id, d.item, d.description, d.photo, d.date, 
+            d.donation_id, d.item, d.description, d.photo, d.donation_date, 
             u.user_id, u.name, u.email, u.phone, 	
             c.category_id, c.category, ci.city_id, ci.city
         FROM donations AS d
@@ -121,5 +121,43 @@ class Donation extends Base {
     }
 
 
+    public function giveDonation($data) {
+
+        // $data = $this->sanitizer($data);
+        $donation_date = date('Y-m-d');
+        $user_id = $_SESSION["user_id"];
+        $pending_donation = 0;
+
+        // if(
+        //     !empty($data["name"]) &&
+        //     !empty($data["email"]) &&
+        //     filter_var($data["email"], FILTER_VALIDATE_EMAIL) &&
+        //     !empty($data["password"]) &&
+        //     mb_strlen($data["password"]) > 5 &&
+        //     mb_strlen($data["password"]) <= 1000 &&
+        //     $data["password"] === $data["rep-password"]
+        // ) {
+
+            $query = $this->db->prepare("
+                INSERT INTO donations
+                (item, description, donation_date, category_id, city_id, user_id, active) 
+                VALUES(?, ?, ?, ?, ?, ?)
+            ");
+            
+            $query->execute([
+                $data["item"],
+                $data["description"],
+                // $data["photo"], 
+                $donation_date,
+                $data["category_id"],
+                $data["city_id"],
+                $user_id,
+                $pending_donation
+            ]);
+
+            return $query;
+            
+        // }        
+    }
 
 };
