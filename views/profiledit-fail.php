@@ -53,21 +53,21 @@
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                                <input type="text" name="name" class="form-control" value="<?php echo $user["name"] ?>" required>    
+                                                <input type="text" name="name" aria-label="name" class="form-control" value="<?php echo $user["name"] ?>" required>    
                                             </div>
                                         </div>
 
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                                <input type="text" name="phone" class="form-control" value="<?php echo $user["phone"] ?>">  
+                                                <input type="text" name="phone" aria-label="phone" class="form-control" value="<?php echo $user["phone"] ?>">  
                                             </div>  
                                         </div>
 
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-home"></i></span>
-                                                <select id="cities" list="cities" name="city_id" class="form-control">
+                                                <select id="cities" list="cities" aria-label="cities" name="city_id" class="form-control">
                                                     <?php 
                                                         foreach($cities as $city){
                                                             echo '

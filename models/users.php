@@ -59,7 +59,7 @@ class User extends Base {
 
     public function login($data) {
         $data = $this->sanitizer($data);
-        
+
         if(
             filter_var($data["email"], FILTER_VALIDATE_EMAIL) &&
             !empty($data["password"]) &&

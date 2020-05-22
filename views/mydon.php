@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link rel="stylesheet" type="Text/css" href="css/mycss.css">
-        <link rel="stylesheet" type="text/css" href="css/donations.css">
+        <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
+        <link rel="stylesheet" type="text/css" href="../css/donations.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <title>My Area: Donations</title>
     </head>
@@ -14,7 +14,7 @@
         
         <header>
             <div class="container">
-                <h1><a href="homepage.php"><img class="logo img-fluid" src="imgs/infilogo.jpg" alt="logotipo"></a></h1>
+                <h1><a href="/"><img class="logo img-fluid" src="../imgs/infilogo.jpg" alt="logotipo"></a></h1>
 
                 <nav class="navbar"> 
                     <ul class="list-inline nav-area"> 
@@ -27,47 +27,54 @@
 
 
         <main>
+
             <div class="container">
 
-                <div class="totaldon" id="countdon">Total de Doações: {{countdon}}</div>
-
+                <div class="totaldon" id="countdon">Total de doações: <?php echo count($donusers) ?></div>
+        <?php
+            foreach($donusers as $donuser) {
+            echo '
                 <div class="well">
                     <div class="media">
 
+
                         <a class="pull-left" href="#">
-                            <img class="media-object" src="./imgs/relogio.jpg" width="200px">
+                            <img class="media-object" src="../imgs/uploads/' .$donuser["photo"]. '" width="200px">
                         </a>
 
                         <div class="media-body">
                             <div class="btn pull-right">
                                 <div>
-                                    <a href="./mydonedit.php">
-                                        <button class="buttons" id="update" value="update"><i class="fas fa-pen symbol changes-btn"></i></button>
+                                    <a href="/mydonedit/' .$donuser["donation_id"]. '">
+                                        <button class="buttons" id="update-don"><i class="fas fa-pen symbol changes-btn"></i></button>
                                     </a>
                                 </div>
                             </div>
                             
 
-                            <h4 class="media-heading">Relógio vintage</h4>
+                            <h4 class="media-heading">'.$donuser["item"].'</h4>
 
-                            <div class="mb-4 mt-4">
-                                    <i class="glyphicon glyphicon-calendar"></i> 20-04-08 |
-                                    <i class="glyphicon glyphicon-home"></i> Lisboa |
-                                    <i class="fas fa-tag"></i> Mobiliário
+                            <div class="mb-4 mt-4 text-capitalize">
+                                    <i class="glyphicon glyphicon-calendar"></i> '.$donuser["donation_date"].' |
+                                    <i class="glyphicon glyphicon-home"></i> '.$donuser["city"].' |
+                                    <i class="fas fa-tag"></i> '.$donuser["category"].'
                             </div>
 
-                            <p>Relógio clássico com mais de 50 anos. Era da minha avó. Quem quer? Funciona!</p>
+                            <p>'.$donuser["description"].'</p>
 
                             <div class="btn pull-right">
                                 <div>
-                                    <button class="buttons" id="delete" value="reset"><i class="far fa-trash-alt symbol changes-btn"></i></button>
+                                    <button class="buttons" id="delete-don"><i class="far fa-trash-alt symbol changes-btn"></i></button>
                                 </div>
                             </div>
 
                         </div>
-                    </div>
                 </div>  <!-- well   -->
             </div> <!-- end container -->
+            ';
+        }
+    ?>
+        </div>
         </main>
 
         <footer class="footer">

@@ -24,41 +24,41 @@
                     <section class="card-body">
                         <div class="text-center mb-4 text-danger">O registo falhou. Por favor verifica os dados que introduziste e tenta de novo.</div>
 
-                        <form action="<?=BASE_PATH."/register/"?>" method="POST">
+                        <form action="<?="/register/"?>" method="POST">
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" name="name" class="form-control" placeholder="Nome" required>    
+                                <input type="text" name="name" aria-label="name" class="form-control" placeholder="Nome" required>    
                             </div>
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                 </div>
-                                <input type="email" name="email" class="form-control" placeholder="Email" required>    
+                                <input type="email" name="email" aria-label="email" class="form-control" placeholder="Email" required>    
                             </div>
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                <input type="password" name="password" aria-label="password" class="form-control" placeholder="Password" required>
                             </div>
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" name="rep-password" class="form-control" placeholder="Repetir password" required>
+                                <input type="password" name="rep-password" aria-label="repeat-password" class="form-control" placeholder="Repetir password" required>
                             </div>
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                 </div>
-                                <input type="text" name="phone" class="form-control" placeholder="Contacto">    
+                                <input type="text" name="phone" aria-label="phone" class="form-control" placeholder="Contacto">    
                             </div>
 
                             <div class="input-group form-group">
@@ -66,7 +66,7 @@
                                     <span class="input-group-text"><i class="fas fa-building"></i></span>
                                 </div>
                                 
-                                <select id="cities" list="cities" name="city_id" class="form-control">
+                                <select id="cities" list="cities" name="city_id" aria-label="cities" class="form-control">
                                     <?php 
                                         foreach($cities as $city){
                                             echo '

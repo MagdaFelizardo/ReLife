@@ -70,6 +70,21 @@ class Donation extends Base {
         return $doncities;
     }
 
+    public function getCategories() {
+
+        $query = $this->db->prepare("
+        SELECT category_id, category
+        FROM categories
+        ");
+
+        $query->execute();
+
+        $categories = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $categories;
+    }
+
+
     public function getListByUsers($id) {
 
         $query = $this->db->prepare("
@@ -91,6 +106,31 @@ class Donation extends Base {
 
         return $donusers;
     }
+
+    public function getDonByDonID($id) {
+
+        $user_id = $_SESSION["user_id"];
+
+        $query = $this->db->prepare("
+        SELECT 
+            d.donation_id, d.item, d.description, d.photo, d.donation_date, 
+            u.user_id, u.name, u.email, u.phone, 	
+            c.category_id, c.category, ci.city_id, ci.city
+        FROM donations AS d
+            INNER JOIN cities AS ci USING(city_id)
+            INNER JOIN users AS u USING(user_id)
+            INNER JOIN categories AS c USING(category_id)
+        WHERE u.user_id = ? AND d.donation_id = ?
+        ORDER BY donation_date DESC
+        ");
+
+        $query->execute([$user_id, $id]);
+
+        $results = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $results;
+    }
+
 
     public function searchItem($search) {
 

@@ -24,20 +24,20 @@
                     <section class="card-body">
                         <div class="text-center mb-4 text-danger">O login falhou. Por favor verifica os dados que introduziste e tenta de novo.</div>
 
-                        <form action="<?=isset($url_parts[3]) ? '/login/?source=formdon/' : '/login/'?>" method="POST">
+                        <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                 </div>
-                                <input type="email" class="form-control" placeholder="email" name="email" required>    
+                                <input type="email" class="form-control" placeholder="email" name="email" aria-label="email" required>    
                             </div>
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="password" name="password" required>
+                                <input type="password" class="form-control" placeholder="password" name="password" aria-label="password" required>
                             </div>
                             
                             <div class="form-group">
