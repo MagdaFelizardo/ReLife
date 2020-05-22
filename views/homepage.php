@@ -31,7 +31,7 @@ if(isset($_SESSION["user_id"])) {
 ?>
 
                         <li class="list-inline-item p-2 bd-highlight" id="register-home"><a class="links p-4" href="<?=BASE_PATH."/register/"?>">REGISTO</a></li>
-                        <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="<?=BASE_PATH."/login/"?>">LOGIN</a></li>
+                        <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="<?=BASE_PATH."/login/?source=login"?>">LOGIN</a></li>
                         
 <?php
     }

@@ -8,10 +8,10 @@ if(isset($_POST["login"])) {
 
     $data = $userModel->login($_POST);
 
-    if(isset($_SESSION["user_id"]) && !isset($url_parts[3])){
+    if(isset($_SESSION["user_id"]) && $url_parts[2] === '?source=login' ){
         header("Location: /");
         exit();
-    }elseif(isset($_SESSION["user_id"]) && isset($url_parts[3]) ){
+    }elseif(isset($_SESSION["user_id"]) && $url_parts[2] === '?source=formdon'){
         header("Location: /formdon/");
         exit();
     }
