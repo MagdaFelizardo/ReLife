@@ -167,10 +167,10 @@ class Donation extends Base {
 
         $photo = $this->sanitizePhoto($_FILES["photo"]);
 
-        if($photo === 0){
+        if($photo === 0 ){
 
-            header("HTTP/1.1 401 Unauthorized");
-            require("views/formdon-photofail.php");
+            $message_two = true;
+            require("views/formdon.php");
             die();
               
         }else{
@@ -208,6 +208,49 @@ class Donation extends Base {
             }
         }
         
+    }
+
+
+    public function updateDonation($data){
+
+        // $data = $this->sanitizer($data);
+        $user_id = $_SESSION["user_id"];
+        $active = 0;
+
+        // if(
+        //     !empty($data["name"]) &&
+        //     !empty($data["phone"]) &&
+        //     mb_strlen($data["phone"]) > 5 &&
+        //     mb_strlen($data["phone"]) <= 32 && 
+        //     !empty($data["city_id"])
+        // ) {
+            $query = $this->db->prepare("
+            UPDATE donations
+            SET
+                item = ?,
+                description = ?,
+                donation_date = ?,
+                category_id = ?
+                city_id = ?,
+                user_id = ?,
+                active = ?
+            WHERE 
+                donation_id = ?
+            ");
+            
+            $query->execute([
+                $data["item"],
+                $data["description"],
+                $data["donation_date"],
+                $data["category_id"],
+                $data["city_id"],
+                $user_id,
+                $active,
+                $data["donation_id"]
+            ]);
+
+            return $count = $query->rowCount();
+        // }
     }
 
 }

@@ -16,8 +16,7 @@ if(isset($_POST["update-profile"])) {
         header("Location: /myprofile/ ");
         exit();
     }else{
-        require("views/profiledit-fail.php");
-        die();
+        $message = "edição falhou";
     }
 }
 

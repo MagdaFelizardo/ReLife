@@ -12,9 +12,8 @@ if(isset($_POST["sendon"])) {
     $data = $donationModel->giveDonation($_POST);
 
     if($data === false){
-        header("HTTP/1.1 401 Unauthorized");
-        require("views/formdon-fail.php");
-        die();
+        $message_one = true;
+
     }else{
         header("Location: /formdon");
         exit();

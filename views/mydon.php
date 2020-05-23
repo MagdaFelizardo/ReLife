@@ -18,7 +18,7 @@
 
                 <nav class="navbar"> 
                     <ul class="list-inline nav-area"> 
-                        <li class="list-inline-item"><a class="nav-link1" href="./myprofile.php"><i class="far fa-user pr-3"></i>O meu perfil</a></li>
+                        <li class="list-inline-item"><a class="nav-link1" href="/myprofile/"><i class="far fa-user pr-3"></i>O meu perfil</a></li>
                         <li class="list-inline-item nav2"><i class="fas fa-hand-holding-heart pr-3"></i>As minhas doações</li>
                     </ul>
                 </nav>   

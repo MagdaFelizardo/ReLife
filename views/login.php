@@ -17,12 +17,14 @@
             <header><h1><a href="<?=BASE_PATH?>"><img src="../imgs/infilogo.jpg" alt="logotipo"></a></h1> </header>
         
             <main class="d-flex justify-content-center h-100">
-                <div class="card card-login">
+                <section class="card card-login">
                     
-                    <section class="card-header"><h2>Entrar</h2></section>
+                    <div class="card-header"><h2>Entrar</h2></div>
                     
-                    <section class="card-body">
-
+                    <div class="card-body">
+                    <?php if(isset($message)){ ?>
+                    <div class="text-center mb-4 text-danger">O login falhou. Por favor verifica os dados que introduziste e tenta de novo.</div>
+                    <?php }?>
                         <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
@@ -42,18 +44,18 @@
                                 <button type="submit" name="login" class="btn float-right btn-login">Login</button>
                             </div>
                         </form>
-                    </section>
+                    </div>
 
-                    <section class="card-footer">
+                    <div class="card-footer">
                         <div class="d-flex justify-content-center">
                             <p>Não tens conta? <a class="links" href="<?=BASE_PATH."/register/"?>">Regista-te! </a></p>
                         </div>
                         <div class="d-flex justify-content-center">
                             <a class="links" href="forgotpass.php">Esqueceste-te da password?</a>
                         </div>
-                    </section>
+                    </div>
 
-                </div> <!-- end card -->
+                </section> <!-- end card -->
             </main>
         </div> <!-- end container -->
     </body>

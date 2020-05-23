@@ -24,7 +24,7 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="nav-link1" href=""<?='/mydon/'?>"">
+                            <a class="nav-link1" href="<?='/mydon/'?>">
                                 <i class="fas fa-hand-holding-heart pr-3"></i>As minhas doações
                             </a>
                         </li>
@@ -37,14 +37,19 @@
                 <div class="container">
 
                     <div class="well">
-                        <div class="media">
+                        <section class="media">
 
-                            <section class="pull-left">
+                            <div class="pull-left">
                                 <i class="fas fa-id-card profilepic"></i>
-                            </section>
+                            </div>
 
                             <div class="media-body">
-                                
+
+                            <?php if(isset($message)){ ?>
+                                <div class="text-right mb-4 text-danger">Não foi possível alterar os teus dados. Por favor verifica o que introduziste e tenta de novo.</div>
+                            <?php }?>
+
+                            
                                 <div class="edit">
                                     <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
 
@@ -85,7 +90,7 @@
                                     </form>
 
                             </div> <!-- end mediabody -->
-                        </div>
+                        </section>
                     </div>  <!-- well   -->
                 </div> <!-- end container -->
             </main>

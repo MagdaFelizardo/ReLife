@@ -30,11 +30,11 @@
                 <div class="container">
 
                     <div class="well">
-                        <div class="media">
+                        <section class="media">
 
-                            <section class="pull-left">
+                            <div class="pull-left">
                                 <i class="fas fa-id-card profilepic"></i>
-                            </section>
+                            </div>
 
                             <div class="media-body">
 
@@ -98,7 +98,7 @@
                                 </div>
        
                             </div> <!-- end mediabody -->
-                        </div>
+                        </section>
                     </div>  <!-- well   -->
                 </div> <!-- end container -->
             </main>

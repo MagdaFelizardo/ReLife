@@ -16,9 +16,7 @@ if(isset($_POST["login"])) {
         header("Location: /formdon/");
         exit();
     }else{
-        header("HTTP/1.1 401 Unauthorized");
-        require("views/login-failed.php");
-        die();
+        $message = "login falhou";
     }
 
 

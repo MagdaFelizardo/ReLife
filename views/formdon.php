@@ -65,6 +65,13 @@
                                     </label>
                                 </div>
                             </div>
+                            
+                            <?php if(isset($message_one)){?>
+                            <div class="text-danger text-center">Por favor preenche todos os campos</div>
+                            <?php }elseif(isset($message_two)){ ?>
+                            <div class="text-danger text-center">O upload da foto falhou. Aceitamos fotos até 200kb e nos formatos .jpg, .png, .webp, .gif, .bmp</div>
+                            <?php } ?>
+
                             <div class="form-group">
                                 <button class="btnsendformdon" type="submit" id="sendformdon" name="sendon">Doar</button>
                             </div>

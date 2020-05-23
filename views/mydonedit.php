@@ -48,22 +48,22 @@
                             <div class="media-body">
 
                                 <div class="edit-donat">
-                                    <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="post" enctype="multipart/form-data">
+                                    <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST" enctype="multipart/form-data">
                                     <?php foreach($results as $result) {
                                     echo '
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-gift"></i></span>
-                                                <input type="text" name="item" class="form-control" placeholder="'.$result["item"].'" required>    
+                                                <input type="text" name="item" aria-label="name" class="form-control" value="'.$result["item"].'" required>    
                                             </div>
                                         </div>
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-tags"></i></i></span>
-                                                <select class="form-control text-capitalize" required>';
+                                                <select class="form-control text-capitalize" name="category_id" aria-label="categories" required>';
                                                 foreach($categories as $category) {
                                                     echo '
-                                                    <option selected="'.$result["category"].'" value="'.$category["category_id"].'">'.$category["category"].' </option>
+                                                    <option '.($result["category_id"] === $category["category_id"] ? "selected" : "").' value="'.$category["category_id"].'">'.$category["category"].'</option>
                                                     ';
                                                 } echo'
                                                 </select> 
@@ -72,18 +72,17 @@
                                         <div class="input-group form-group description">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-align-left"></i></span>
-                                                <textarea class="form-control description" cols="70" rows="3" name="description" placeholder="'.$result["description"].'"></textarea>    
+                                                <textarea class="form-control description" aria-label="description" cols="70" rows="3" name="description">'.$result["description"].'</textarea>    
                                             </div> 
                                         </div>
 
-                                        <div class="input-group form-group photo">
-                                            <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-camera"></i></span>
-                                            <input type="file" accept=".png, .jpg, .jpeg" class="form-control-file" name="photo" id="choosephoto" value="'.$result["photo"].'">
-                                        </div>
-                                        
+                                        <span><input type="hidden" name="donation_date" value="'.$result["donation_date"].'"></span>
+                                        <span><input type="hidden" name="donation_id" value="'.$url_parts[2].'"></span>
+                                        <span><input type="hidden" name="city_id" value="'.$result["city_id"].'"></span>
+
+                                  
                                         <div class="form-group float-right">
-                                            <button type="submit" value="update-don" class="btn buttons mt-4 changes-btn">
+                                            <button type="submit" name="update-donation" class="btn buttons mt-4 changes-btn">
                                                 <i class="far fa-save"></i>
                                                 <span class="btn-txt"> Gravar </span>
                                             </button>
