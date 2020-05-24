@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/form.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <title>Nova Doação</title>
     </head>
     <body class="img-background img-fluid"> 
@@ -65,17 +66,24 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="small">
+                            <p class="mt-3">Fotos até 200kb || Formatos: .jpeg, .jpg, .png, .webp, .gif e .bmp</p>
+                            </div>
                             
                             <?php if(isset($message_one)){?>
                             <div class="text-danger text-center">Por favor preenche todos os campos</div>
                             <?php }elseif(isset($message_two)){ ?>
                             <div class="text-danger text-center">O upload da foto falhou. Aceitamos fotos até 200kb e nos formatos .jpg, .png, .webp, .gif, .bmp</div>
+                            <?php }elseif(isset($thank_you)){ ?>
+                            <div class="text-danger text center h3">Muito obrigado pela tua doação! <i class="fas fa-heart"></i></i></div>
                             <?php } ?>
 
                             <div class="form-group">
                                 <button class="btnsendformdon" type="submit" id="sendformdon" name="sendon">Doar</button>
                             </div>
                         </form>
+                        
+                        
                         <div class="backhome">
                             <button type="button" class="btn btn link">
                                 <a class="back" href="<?='/'?>">&#8634</a>

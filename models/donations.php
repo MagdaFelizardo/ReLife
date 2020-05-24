@@ -300,6 +300,17 @@ class Donation extends Base {
         }  
     }
 
+    public function deleteDonation($id) {
 
+        $user_id = $_SESSION["user_id"];
+
+        $query = $this->db->prepare("
+        DELETE FROM donations
+        WHERE user_id = ? AND donation_id = ?
+        ");
+        $query->execute([$user_id, $id]);
+        
+        return true;
+    }
 
 }

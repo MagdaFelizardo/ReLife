@@ -22,7 +22,8 @@ $controller = "homepage";
 $controllers = ["homepage", "donations", "dontags", "doncities", 
                 "donusers", "searchitem", "register", "login", "logout", 
                 "myprofile", "myprofiledit", "changepass", "deleteaccount",
-                "formdon", "mydon", "mydonedit", "mydonphotoedit", "mydondelete"];
+                "formdon", "mydon", "mydonedit", "mydonphotoedit", "mydondelete", 
+                "deletedonation"];
 
 
 //redirecciona para o controller que é suposto

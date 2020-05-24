@@ -38,7 +38,7 @@
                         <div class="pull-left">
 
                             <?php foreach($results as $result) { ?>
-                            <img width="200" src="../imgs/uploads/<?php echo $result["photo"] ?> "">
+                            <img width="200" src="../imgs/uploads/<?php echo $result["photo"] ?> ">
                         </div> 
 
                         <div class="media-body pl-4">
@@ -54,8 +54,8 @@
                         <div class="media-footer">
 
                             <div class="form-group float-right">
-                                <button type="submit" name="delete-donation" class="btn buttons mt-4 changes-btn" value="<?php echo $url_parts[2] ?> ">
-                                    <i class="far fa-save"></i>
+                                <a href="/deletedonation/<?php echo $result["donation_id"] ?>" class="btn buttons mt-4 changes-btn">
+                                    <i class="far fa-trash-alt"></i>
                                     <span class="btn-txt"> Confirmo Remoção </span>
                                 </button>
                             </div>
