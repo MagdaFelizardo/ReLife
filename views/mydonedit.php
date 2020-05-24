@@ -33,53 +33,47 @@
             <div class="container">
 
                 <div class="well">
-                    <div class="media">
+                    <section class="media">
 
-                        <section class="pull-left">
-                        <!-- <i class="fas fa-gift profilepic"></i> -->
-                            <?php foreach($results as $result) {
-                                echo '
-                            <img class="donphoto" src="../imgs/uploads/'.$result["photo"].'">
-                            ';
-                        }
-                        ?>
-                        </section>
+                        <div class="pull-left">
+                        <?php foreach($results as $result) { ?>
+                                <img class="donphotoedit" src="../imgs/uploads/<?php echo $result["photo"] ?>">
+                                <a class="linkdon" href="/mydonphotoedit/<?php echo $result["donation_id"] ?>"><div class="medium text-center mt-3">(Alterar foto)</div></a>
+                            <?php }; ?>
+                            
+                        </div>
 
                             <div class="media-body">
 
                                 <div class="edit-donat">
                                     <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST" enctype="multipart/form-data">
-                                    <?php foreach($results as $result) {
-                                    echo '
+                                    <?php foreach($results as $result) { ?>
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-gift"></i></span>
-                                                <input type="text" name="item" aria-label="name" class="form-control" value="'.$result["item"].'" required>    
+                                                <input type="text" name="item" aria-label="name" class="form-control" value="<?php echo $result["item"] ?>" required>    
                                             </div>
                                         </div>
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-tags"></i></i></span>
                                                 <select class="form-control text-capitalize" name="category_id" aria-label="categories" required>';
-                                                foreach($categories as $category) {
-                                                    echo '
-                                                    <option '.($result["category_id"] === $category["category_id"] ? "selected" : "").' value="'.$category["category_id"].'">'.$category["category"].'</option>
-                                                    ';
-                                                } echo'
+                                                <?php foreach($categories as $category) { ?>
+                                                    <option <?php echo $result["category_id"] === $category["category_id"] ? "selected" : "" ?> value="<?php echo $category["category_id"] ?> "> <?php echo $category["category"] ?></option>
+                                                <?php ;} ?>
                                                 </select> 
                                             </div>  
                                         </div>
                                         <div class="input-group form-group description">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-align-left"></i></span>
-                                                <textarea class="form-control description" aria-label="description" cols="70" rows="3" name="description">'.$result["description"].'</textarea>    
+                                                <textarea class="form-control description" aria-label="description" cols="70" rows="3" name="description"> <?php echo $result["description"] ?></textarea>    
                                             </div> 
                                         </div>
 
-                                        <span><input type="hidden" name="donation_date" value="'.$result["donation_date"].'"></span>
-                                        <span><input type="hidden" name="donation_id" value="'.$url_parts[2].'"></span>
-                                        <span><input type="hidden" name="city_id" value="'.$result["city_id"].'"></span>
-
+                                        <span><input type="hidden" name="donation_date" value="<?php echo $result["donation_date"] ?>"></span>
+                                        <span><input type="hidden" name="donation_id" value="<?php echo $url_parts[2] ?>"></span>
+                                        <span><input type="hidden" name="city_id" value="<?php echo $result["city_id"] ?>"></span>
                                   
                                         <div class="form-group float-right">
                                             <button type="submit" name="update-donation" class="btn buttons mt-4 changes-btn">
@@ -87,13 +81,16 @@
                                                 <span class="btn-txt"> Gravar </span>
                                             </button>
                                         </div>
-                                        ';
-                                    }
-                                    ?>
+                                        <?php ;} ?>
                                     </form>
+
+                                    <?php if(isset($notaccepted)){?>
+                                    <div class="text-danger">Lamentamos mas não foi possível actualizar os teus dados.</div>
+                                    <?php } ?>
+
                                 </div> <!--end edit -->
                             </div> <!-- end mediabody -->
-                    </div>
+                    </section>
                 </div>  <!-- well   -->
             </div> <!-- end container -->
         </main>

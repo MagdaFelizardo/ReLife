@@ -34,7 +34,7 @@ class Base {
             "bmp" => "image/bmp"
         ];
 
-        if(isset($_FILES["photo"])){
+        if(isset($_FILES)){
 
             //detectar o media type do ficheiro enviado
             $finfo = finfo_open(FILEINFO_MIME_TYPE);

@@ -61,7 +61,7 @@
                             <div class="form-group photo">
                                 <div class="form-inline">    
                                     <label> Fotografia
-                                    <input type="file" accept=".jpeg, .jpg, .png, .webp, .gif, .bmp" class="form-control-file" name="photo" id="choosephoto">
+                                    <input type="file" accept=".jpeg, .jpg, .png, .webp, .gif, .bmp" class="form-control-file" name="photo" id="choosephoto" required>
                                     </label>
                                 </div>
                             </div>

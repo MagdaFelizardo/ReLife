@@ -131,6 +131,25 @@ class Donation extends Base {
         return $results;
     }
 
+    public function getDonation($id) {
+
+        $user_id = $_SESSION["user_id"];
+
+        $query = $this->db->prepare("
+        SELECT *
+        FROM donations 
+        WHERE user_id = ? AND donation_id = ?
+        ");
+
+        $query->execute([$user_id, $id]);
+
+        $donation = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $donation;
+        
+    }
+
+
 
     public function searchItem($search) {
 
@@ -213,24 +232,20 @@ class Donation extends Base {
 
     public function updateDonation($data){
 
-        // $data = $this->sanitizer($data);
         $user_id = $_SESSION["user_id"];
-        $active = 0;
-
-        // if(
-        //     !empty($data["name"]) &&
-        //     !empty($data["phone"]) &&
-        //     mb_strlen($data["phone"]) > 5 &&
-        //     mb_strlen($data["phone"]) <= 32 && 
-        //     !empty($data["city_id"])
-        // ) {
+        $active = 1;
+        $data = $this->sanitizer($data);
+       
+        if(
+            !empty($data["item"])
+        ) {
             $query = $this->db->prepare("
             UPDATE donations
             SET
                 item = ?,
                 description = ?,
                 donation_date = ?,
-                category_id = ?
+                category_id = ?,
                 city_id = ?,
                 user_id = ?,
                 active = ?
@@ -250,7 +265,41 @@ class Donation extends Base {
             ]);
 
             return $count = $query->rowCount();
-        // }
+        } 
     }
+
+
+    public function updateDonPhoto($data){
+
+        $active = 0;
+        $data = $this->sanitizer($data);
+
+        $photo = $this->sanitizePhoto($_FILES);
+
+        if($photo === 0 ){
+            $message_error = true;
+
+        }else{
+
+            $query = $this->db->prepare("
+            UPDATE donations
+            SET
+                photo = ?,
+                active = ?
+            WHERE 
+                donation_id = ?
+            ");
+            
+            $query->execute([
+                $photo,
+                $active,
+                $data["donation_id"]
+            ]);
+
+            return $count = $query->rowCount();   
+        }  
+    }
+
+
 
 }

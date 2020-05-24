@@ -31,6 +31,11 @@
             <div class="container">
 
                 <div class="totaldon" id="countdon">Total de doações: <?php echo count($donusers) ?></div>
+
+                <?php if(isset($message_processing)){ ?>
+                <p class="text-center text-info change-info">O seu pedido de alteração está a ser processado e ficará visível após aprovação</p>
+                <?php } ?>
+
         <?php
             foreach($donusers as $donuser) {
             echo '
@@ -38,7 +43,7 @@
                     <div class="media">
 
 
-                        <a class="pull-left" href="#">
+                        <a class="pull-left" href="/mydonphotoedit/' .$donuser["donation_id"]. '">
                             <img class="media-object" src="../imgs/uploads/' .$donuser["photo"]. '" width="200px">
                         </a>
 
@@ -63,9 +68,9 @@
                             <p>'.$donuser["description"].'</p>
 
                             <div class="btn pull-right">
-                                <div>
-                                    <button class="buttons" id="delete-don"><i class="far fa-trash-alt symbol changes-btn"></i></button>
-                                </div>
+                                <a href="/mydondelete/' .$donuser["donation_id"]. '">
+                                    <button type="button" class="buttons" id="delete-don"><i class="far fa-trash-alt symbol changes-btn"></i></button>
+                                </a>
                             </div>
 
                         </div>

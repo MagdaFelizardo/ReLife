@@ -5,9 +5,8 @@ $donationModel= new Donation();
 
 $results = $donationModel->getDonByDonID($url_parts[2]);
 
-$categories = $donationModel->getCategories();
-
 $donusers = $donationModel->getListByUsers($_SESSION["user_id"]);
+
 
 $donation = $donationModel->getDonation($url_parts[2]);
 
@@ -18,23 +17,24 @@ if( empty($donation) ){
 };
 
 
-if(isset($_POST["update-donation"])) {
 
-    $rowcount = $donationModel->updateDonation($_POST);
+if(isset($_POST["update-donphoto"])) {
 
-    if($rowcount > 0){
-        $message_processing = true;
-        require("./views/mydon.php");
-        exit();
+    $count = $donationModel->updateDonPhoto($_POST);
+
+    if($count > 0) {   
+        $message_success = true;
+        require("./views/mydonphotoedit.php");
+        die();
     }else{
-        $notaccepted = true;
-        require("./views/mydonedit.php");
+        $message_error = true;  
+        require("./views/mydonphotoedit.php");
         die();
     }
 }
 
 
-require("./views/mydonedit.php");
+require("./views/mydonphotoedit.php");
 
 
 
