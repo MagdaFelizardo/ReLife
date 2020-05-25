@@ -40,12 +40,12 @@
                                         <h1 class="media-heading donation-title text-capitalize">' .$donation["item"]. '</h1>
                                         <div class="mb-4 mt-4">
                                             <i class="glyphicon glyphicon-calendar"></i> '.$donation["donation_date"].' |
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$donation["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$donation["city"]. ' |</a>
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/dontags/'.$donation["category_id"].'"><i class="fas fa-tag"></i> ' .$donation["category"]. '</a>
+                                            <a class="linkdon text-capitalize" href="/doncities/'.$donation["city_id"].'/?page='.$page_number.' "><i class="glyphicon glyphicon-home"></i> ' .$donation["city"]. ' |</a>
+                                            <a class="linkdon text-capitalize" href="/dontags/'.$donation["category_id"].'/?page='.$page_number.' "><i class="fas fa-tag"></i> ' .$donation["category"]. '</a>
                                         </div>
                                         <p class="first-letter-cap">' .$donation["description"]. '</p>
                                         <div class="float-right mt-4">
-                                            <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/donusers/'.$donation["user_id"].' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$donation["name"]. ' | </a>
+                                            <a class="linkdon text-capitalize" href="/donusers/'.$donation["user_id"].'/?page='.$page_number.' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$donation["name"]. ' | </a>
                                             <span><i class="glyphicon glyphicon-envelope"></i> ' .$donation["email"]. ' | </span>
                                             <span><i class="glyphicon glyphicon-phone"></i> ' .$donation["phone"]. ' </span>
                                         </div>
@@ -56,18 +56,19 @@
                         ';
                     }
                 ?>
-            </main>
+            </main>    
 
             <footer class="footer">
                 <div class="container">
                     <nav aria-label="Nav-pages">
                         <ul class="pagination float-right">
-                            <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                            <li class="page-item <?php echo isset($message) ? "disabled" : "" ?> "><a class="page-link" href="/donations/?page=<?php echo $page ?>">&laquo;</a></li>
+                            <li class="page-item disabled"><a class="page-link" href=""><?php echo ++$page ?></a></li>
+                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>"><?php echo $page ?></a></li>
+                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>"><?php echo $page ?></a></li>
+                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>"><?php echo $page ?></a></li>
+                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>"><?php echo $page ?></a></li>
+                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>">&raquo;</a></li>
                         </ul>
                     </nav>
                 </div> <!-- end container -->

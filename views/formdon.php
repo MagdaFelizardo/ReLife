@@ -16,7 +16,7 @@
                     <div class="col-6"></div>
                     <div class="col-6">
                     <h1 class="titledon">Nova Doação</h1>
-                        <form class="form" action="<?=BASE_PATH."/formdon/"?>" method="POST" enctype="multipart/form-data">
+                        <form class="form" action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="item">Item 
                                 <input type="text" class="form-control-inline" size="15" name="item" id="item" placeholder="O que vais doar?" required>

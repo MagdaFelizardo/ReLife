@@ -19,23 +19,20 @@
                     <ul class="list-inline"> 
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_proj">O PROJECTO</a> </li>
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_quem">QUEM SOMOS</a></li>
-                        <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="<?=BASE_PATH."/donations/"?>">DOAÇÕES</a></li>
-<?php
-if(isset($_SESSION["user_id"])) {
-?>
-                        <li class="list-inline-item p-2 bd-highlight" id="logout-home"><a class="links p-4" href="<?=BASE_PATH."/myprofile/"?>">ÁREA PESSOAL</a></li>
-                        <li class="list-inline-item p-2 bd-highlight" id="logout-home"><a class="links p-4" href="<?=BASE_PATH."/logout/"?>">LOGOUT</a></li>
-
-<?php
-}else{
-?>
-
-                        <li class="list-inline-item p-2 bd-highlight" id="register-home"><a class="links p-4" href="<?=BASE_PATH."/register/"?>">REGISTO</a></li>
-                        <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="<?=BASE_PATH."/login/?source=login"?>">LOGIN</a></li>
-                        
-<?php
-    }
-?>
+                        <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="/donations/?page=<?php echo $page_number ?>">DOAÇÕES</a></li>
+                        <?php
+                        if(isset($_SESSION["user_id"])) {
+                        ?>
+                        <li class="list-inline-item p-2 bd-highlight" id="logout-home"><a class="links p-4" href="/myprofile/">ÁREA PESSOAL</a></li>
+                        <li class="list-inline-item p-2 bd-highlight" id="logout-home"><a class="links p-4" href="/logout/">LOGOUT</a></li>
+                        <?php
+                        }else{
+                        ?>
+                        <li class="list-inline-item p-2 bd-highlight" id="register-home"><a class="links p-4" href="/register/">REGISTO</a></li>
+                        <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="/login/?source=login">LOGIN</a></li>                
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </nav>  
             </div>
@@ -127,15 +124,7 @@ if(isset($_SESSION["user_id"])) {
             </div>
     </section>
     <footer class="text-center footer-relife p-4">
-
-        <h3 class="ttlnews my-3">Mantém-te a par!</h3>
-        <p class="newstext">Inscreve-te na nossa newsletter e recebe todas as novidades</p>
-            <form class="mb-3" action="<?=BASE_PATH?>" method="post">
-                <div>
-                    <span><input class="newsletter" id="form2" type="text" name="email" placeholder="Email"></span>
-                    <button class="newsletter" type="submit" name="send" value=""><i class="far fa-paper-plane"></i></button>
-                </div>
-            </form>
+        <div class="float right medium text-light">&#169; Magda Felizardo</div>
     </footer>   
 </body>
 </html>

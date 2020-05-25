@@ -90,7 +90,7 @@
 
                                 <div class="float-right">
                                     <div class="btn-block">
-                                        <a class="delink" href="/deleteaccount/">
+                                        <a class="delink" href="/confirmdelete-account/">
                                             <i class="fas fa-user-times"></i>
                                             <span class="btn-txt">Apagar conta</span>
                                         </a>

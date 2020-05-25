@@ -87,7 +87,7 @@
 
                     <div class="card-footer">
                         <div class="d-flex justify-content-center">
-                            <p>Já tens conta? <a class="links" href="login.php">Entrar </a></p>
+                            <p>Já tens conta? <a class="links" href="/login/?source=login">Entrar </a></p>
                         </div>
                     </div>
 

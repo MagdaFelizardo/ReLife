@@ -21,9 +21,9 @@ $controller = "homepage";
 // white list de controllers
 $controllers = ["homepage", "donations", "dontags", "doncities", 
                 "donusers", "searchitem", "register", "login", "logout", 
-                "myprofile", "myprofiledit", "changepass", "deleteaccount",
+                "myprofile", "myprofiledit", "changepass", "confirmdelete-account", "deleteaccount",
                 "formdon", "mydon", "mydonedit", "mydonphotoedit", "mydondelete", 
-                "deletedonation"];
+                "deletedonation", "forgotpass"];
 
 
 //redirecciona para o controller que é suposto
