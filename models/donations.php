@@ -25,7 +25,9 @@ class Donation extends Base {
     //     return $donations;
     // }
 
-    public function getList($data) {
+    public function getList($page_number) {
+
+        $this->db->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
 
         $query = $this->db->prepare("
         SELECT 
@@ -42,9 +44,7 @@ class Donation extends Base {
         OFFSET ?
         ");
 
-        // $query->bindValue(1, (int)($data), PDO::PARAM_INT);
-
-        $query->execute([$data]);
+        $query->execute([$page_number]);
 
         $donations= $query->fetchAll( PDO::FETCH_ASSOC );
 

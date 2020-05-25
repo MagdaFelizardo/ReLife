@@ -4,7 +4,7 @@ class Base {
 
     public function __construct() {
         $this->db = new PDO("mysql:host=localhost;dbname=relife;charset=utf8mb4", "root", "");
-        $this->db->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
+        // $this->db->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
     }
 
     public function sanitizeSearch($input) {

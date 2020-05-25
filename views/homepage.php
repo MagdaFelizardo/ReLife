@@ -20,19 +20,19 @@
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_proj">O PROJECTO</a> </li>
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="#div_quem">QUEM SOMOS</a></li>
                         <li class="list-inline-item p-2 bd-highlight"><a class="links p-4" href="/donations/?page=<?php echo $page_number ?>">DOAÇÕES</a></li>
-                        <?php
-                        if(isset($_SESSION["user_id"])) {
-                        ?>
+
+                        <?php if(isset($_SESSION["user_id"])) { ?>
+
                         <li class="list-inline-item p-2 bd-highlight" id="logout-home"><a class="links p-4" href="/myprofile/">ÁREA PESSOAL</a></li>
                         <li class="list-inline-item p-2 bd-highlight" id="logout-home"><a class="links p-4" href="/logout/">LOGOUT</a></li>
-                        <?php
-                        }else{
-                        ?>
+                        
+                        <?php }else{ ?>
+
                         <li class="list-inline-item p-2 bd-highlight" id="register-home"><a class="links p-4" href="/register/">REGISTO</a></li>
                         <li class="list-inline-item p-2 bd-highlight" id="login-home"><a class="links p-4" href="/login/?source=login">LOGIN</a></li>                
-                        <?php
-                            }
-                        ?>
+                        
+                        <?php } ?>
+
                     </ul>
                 </nav>  
             </div>

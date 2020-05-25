@@ -14,19 +14,17 @@
     
 
         <div class="container">
-            <header><h1><a href="<?=BASE_PATH?>"><img src="../imgs/infilogo.jpg" alt="logotipo"></a></h1> </header>
+            <header><h1><a href="/"><img src="../imgs/infilogo.jpg" alt="logotipo"></a></h1> </header>
         
             <main class="d-flex justify-content-center h-100">
                 <section class="card card-login">
                     
-                    <div class="card-header"><h2>Entrar</h2></div>
+                    <div class="card-header"><h2>Bem-vindo Big Boss!</h2></div>
                     
                     <div class="card-body">
                     <?php if(isset($message)){ ?>
                     <div class="text-center mb-4 text-danger">O login falhou. Por favor verifica os dados que introduziste e tenta de novo.</div>
-                    <?php }elseif(isset($not_this_email)){?>
-                    <div class="text-center mb-4 text-info">Não pode aceder com este email, se pretender utilize outro email.</div>
-                    <?php } ?>
+                    <?php }?>
                         <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
@@ -47,16 +45,6 @@
                             </div>
                         </form>
                     </div>
-
-                    <div class="card-footer">
-                        <div class="d-flex justify-content-center">
-                            <p>Não tens conta? <a class="links" href="/register/">Regista-te! </a></p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a class="links" href="/forgotpass/">Esqueceste-te da password?</a>
-                        </div>
-                    </div>
-
                 </section> <!-- end card -->
             </main>
         </div> <!-- end container -->

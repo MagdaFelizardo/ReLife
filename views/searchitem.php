@@ -26,71 +26,58 @@
                 <h2 class="donationsh2">Resultados de Pesquisa</h2>
             </div>
         </header>
-            <main>    
-                <?php
-                    if(!empty($items)) {
-                        foreach($items as $item) {
-                            echo '          
-                                <div class="container">
-                                    <div class="well">
-                                        <div class="media">
-                                            <a class="pull-left" href="./?controller=donations&donation_id=' .$item["donation_id"]. '">
-                                                <img class="media-object" src="' .$item["photo"]. '" width="200px">
-                                            </a>
-                                            <div class="media-body">
-                                                <h1 class="media-heading donation-title text-capitalize">' .$item["item"]. '</h1>
-                                                <div class="mb-4 mt-4">
-                                                    <i class="glyphicon glyphicon-calendar"></i> '.$item["date"].' |
-                                                    <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/doncities/'.$item["city_id"].' "><i class="glyphicon glyphicon-home"></i> ' .$item["city"]. ' |</a>
-                                                    <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/dontags/'.$item["category_id"].'"><i class="fas fa-tag"></i> ' .$item["category"]. '</a>
-                                                </div>
-                                                <p class="first-letter-cap">' .$item["description"]. '</p>
-                                                <div class="float-right mt-4">
-                                                    <a class="linkdon text-capitalize" href=" '.BASE_PATH.'/donusers/'.$item["user_id"].' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$item["name"]. ' | </a>
-                                                    <span><i class="glyphicon glyphicon-envelope"></i> ' .$item["email"]. ' | </span>
-                                                    <span><i class="glyphicon glyphicon-phone"></i> ' .$item["phone"]. ' </span>
-                                                </div>
+        
+        <main>    
+            <?php
+                if(!empty($items)) {
+                    foreach($items as $item) {
+                        echo '          
+                            <div class="container">
+                                <div class="well">
+                                    <div class="media">
+                                        <a class="pull-left" href="./?controller=donations&donation_id=' .$item["donation_id"]. '">
+                                            <img class="media-object" src="/imgs/uploads/' .$item["photo"]. '" width="200px">
+                                        </a>
+                                        <div class="media-body">
+                                            <h1 class="media-heading donation-title text-capitalize">' .$item["item"]. '</h1>
+                                            <div class="mb-4 mt-4">
+                                                <i class="glyphicon glyphicon-calendar"></i> '.$item["donation_date"].' |
+                                                <a class="linkdon text-capitalize" href="/doncities/'.$item["city_id"].'/?page='.$page_number.' "><i class="glyphicon glyphicon-home"></i> ' .$item["city"]. ' |</a>
+                                                <a class="linkdon text-capitalize" href="/dontags/'.$item["category_id"].'/?page='.$page_number.'"><i class="fas fa-tag"></i> ' .$item["category"]. '</a>
+                                            </div>
+                                            <p class="first-letter-cap">' .$item["description"]. '</p>
+                                            <div class="float-right mt-4">
+                                                <a class="linkdon text-capitalize" href=" /donusers/'.$item["user_id"].'/?page='.$page_number.' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$item["name"]. ' | </a>
+                                                <span><i class="glyphicon glyphicon-envelope"></i> ' .$item["email"]. ' | </span>
+                                                <span><i class="glyphicon glyphicon-phone"></i> ' .$item["phone"]. ' </span>
                                             </div>
                                         </div>
-                                    </div>  <!-- well   -->
-                                    <div class="backdonations">
-                                        <button type="button" class="btn btn link">
-                                            <a class="back" href="'.BASE_PATH.'/donations/">&#8634</a>
-                                        </button>
                                     </div>
-                                </div> <!-- end container -->
-                                ';
-                        } 
-                    }else{ 
-                        echo '
-                        <div class="container">
-                            <div class="text-center noresults">
-                                <i class="fas fa-poo imgs-noresults"></i>
-                                Ups! Não encontrámos resultados! Tenta de novo 
-                                <i class="far fa-grin-beam-sweat imgs-noresults"></i>
-                            </div>
-                            <div class="backdonations1">
-                                <button type="button" class="btn btn link">
-                                    <a class="back" href="'.BASE_PATH.'/donations/">&#8634</a>
-                                </button>
-                            </div>
-                        </div> <!-- end container -->';
-                    }
-                ?>
-            </main>
-            <footer class="footer">
-                <div class="container">
-                    <nav aria-label="Nav-pages">
-                        <ul class="pagination float-right">
-                            <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                        </ul>
-                    </nav>
-                </div> <!-- end container -->
-            </footer>
+                                </div>  <!-- well   -->
+                                <div class="backdonations">
+                                    <button type="button" class="btn btn link">
+                                        <a class="back" href="/donations?page='.$page_number.'">&#8634</a>
+                                    </button>
+                                </div>
+                            </div> <!-- end container -->
+                            ';
+                    } 
+                }else{ 
+                    echo '
+                    <div class="container">
+                        <div class="text-center noresults">
+                            <i class="fas fa-poo imgs-noresults"></i>
+                            Ups! Não encontrámos resultados! Tenta de novo 
+                            <i class="far fa-grin-beam-sweat imgs-noresults"></i>
+                        </div>
+                        <div class="backdonations1">
+                            <button type="button" class="btn btn link">
+                                <a class="back" href="/donations/?page='.$page_number.'">&#8634</a>
+                            </button>
+                        </div>
+                    </div> <!-- end container -->';
+                }
+            ?>
+        </main>
     </body>
 </html>

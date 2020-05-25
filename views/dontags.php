@@ -55,6 +55,8 @@
                     </div>  <!-- well   -->
                 </div> <!-- end container -->
                 '; } ?>
+
+
                 <div class="container">
                     <div class="backdonations">
                         <button type="button" class="btn btn link">
@@ -64,20 +66,5 @@
                 </div> <!-- end container -->
             </main>
 
-            <footer class="footer">
-                <div class="container">
-                    <nav aria-label="Nav-pages">
-                        <ul class="pagination float-right">
-                            <li class="page-item <?php echo isset($message) ? "disabled" : "" ?> "><a class="page-link" href="/donations/?page=<?php echo $page ?>">&laquo;</a></li>
-                            <li class="page-item disabled"><a class="page-link" href=""><?php echo ++$page ?></a></li>
-                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>"><?php echo $page ?></a></li>
-                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>"><?php echo $page ?></a></li>
-                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>"><?php echo $page ?></a></li>
-                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>"><?php echo $page ?></a></li>
-                            <li class="page-item"><a class="page-link" href="/donations/?page=<?php echo ++$page ?>">&raquo;</a></li>
-                        </ul>
-                    </nav>
-                </div> <!-- end container -->
-            </footer>
     </body>
 </html>

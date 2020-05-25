@@ -4,8 +4,7 @@ require("./models/donations.php");
 $donationModel= new Donation();
 
 //numeraçao dos links das paginas de doaçoes - LINKS
-$pageone = 1;
-$page_number = urlencode($pageone);
+$page_number = 1;
 
 
 if(isset($_GET['search'])){
@@ -17,14 +16,19 @@ if(isset($_GET['search'])){
 }else{
     
     //paginaçao no rodapé
-    if($_REQUEST["page"] < 2 ){
-        $message = "nem penses em andar para trás";
+    if($_GET["page"] < 2 ){
+        $disable_back = "não andar para trás";
     }
-    $page_nr = $_REQUEST["page"]-1;
-    $page = urlencode($page_nr);
-    $data = $page_nr*10;
+
+    
+    $page = (int)$_GET["page"] - 1;
+    $data = $page * 10;
 
     $donations = $donationModel->getList($data);
+
+    if(count($donations) < 9){
+        $disable_forward = "não andar para a frente";
+    }
 
     require("./views/donations.php");
 }

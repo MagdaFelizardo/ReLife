@@ -16,8 +16,6 @@ if(isset($_POST["sendon"])) {
         $message_one = true;
 
     }else{
-        // header("Location: /formdon");
-        // exit();
         $thank_you = true;
     }
 
