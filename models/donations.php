@@ -3,28 +3,6 @@ require_once("base.php");
 
 class Donation extends Base {
 
-    // public function getList() {
-
-    //     $query = $this->db->prepare("
-    //     SELECT 
-    //         d.donation_id, d.item, d.description, d.photo, d.donation_date, 
-    //         u.user_id, u.name, u.email, u.phone, 	
-    //         c.category_id, c.category, ci.city_id, ci.city
-    //     FROM donations AS d
-    //         INNER JOIN cities AS ci USING(city_id)
-    //         INNER JOIN users AS u USING(user_id)
-    //         INNER JOIN categories AS c USING(category_id)
-    //     WHERE d.active = 1
-    //     ORDER BY donation_date DESC
-    //     ");
-
-    //     $query->execute();
-
-    //     $donations = $query->fetchAll( PDO::FETCH_ASSOC );
-
-    //     return $donations;
-    // }
-
     public function getList($page_number) {
 
         $this->db->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
@@ -94,20 +72,6 @@ class Donation extends Base {
         $doncities = $query->fetchAll( PDO::FETCH_ASSOC );
 
         return $doncities;
-    }
-
-    public function getCategories() {
-
-        $query = $this->db->prepare("
-        SELECT category_id, category
-        FROM categories
-        ");
-
-        $query->execute();
-
-        $categories = $query->fetchAll( PDO::FETCH_ASSOC );
-
-        return $categories;
     }
 
 

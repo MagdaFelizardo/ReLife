@@ -1,0 +1,88 @@
+/*////////////////////////////
+////////// PENDING DON //////////
+////////////////////////////*/
+
+.navbar{
+    justify-content: right;
+    text-transform: capitalize;
+    padding-left: 8rem;
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.nav-link1 {
+    color:  rgb(0, 169, 175) !important;
+    text-decoration: none !important;
+}
+.nav-link1:hover {
+    color:  #8B8878 !important;
+}
+
+.nav2 {
+    color:black;
+}
+
+.change-info{
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.buttons{
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.linkdon {
+    color: rgb(72, 116, 116);
+    text-decoration: none !important;
+}
+.linkdon:hover {
+    color:  rgb(0, 169, 175) !important;
+    /* #8B8878 !important; */
+}
+
+.symbol{
+    color: black;
+}
+
+
+/* //////////////////MANAGE USERS ////////////// */
+
+.profilepic{
+    font-size: 100px;
+    padding-right: 20px;
+    margin-left: 20px;
+}
+
+.btn-txt{
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.txt{
+    padding-left: 15px;
+}
+
+.profile{
+    margin-top: 2%;    
+
+}
+
+.profile-itens{
+    font-size: 14px;
+    padding-left: 15%;
+    margin-bottom: 10px;
+
+}
+
+.navbar2{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+

@@ -60,4 +60,19 @@ class Base {
         }
     }
 
+
+    public function getCategories() {
+
+        $query = $this->db->prepare("
+        SELECT category_id, category
+        FROM categories
+        ");
+
+        $query->execute();
+
+        $categories = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $categories;
+    }
+
 }

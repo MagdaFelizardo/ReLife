@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/mycss.css">
-        <link rel="stylesheet" type="text/css" href="../css/login-register.css">
+        <link rel="stylesheet" type="text/css" href="../css/bigboss-login.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <title>Login</title>
+        <title>Login Big Boss</title>
     </head>
 
     <body>
@@ -22,9 +22,7 @@
                     <div class="card-header"><h2>Bem-vindo Big Boss!</h2></div>
                     
                     <div class="card-body">
-                    <?php if(isset($message)){ ?>
-                    <div class="text-center mb-4 text-danger">O login falhou. Por favor verifica os dados que introduziste e tenta de novo.</div>
-                    <?php }?>
+
                         <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
@@ -45,6 +43,9 @@
                             </div>
                         </form>
                     </div>
+                    <?php if(isset($unauthorized)){ ?>
+                        <div class="text-center mb-4 text-danger">Dados incorrectos.</div>
+                        <?php }?>
                 </section> <!-- end card -->
             </main>
         </div> <!-- end container -->

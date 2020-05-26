@@ -1,0 +1,61 @@
+/* ////////////////////
+/////BIG BOSS LOGIN////
+//////////////////////// */
+
+html,body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(/imgs/bigboss-cover.jpg);
+    background-size: cover;
+}
+
+img{
+    width: 30%;
+    border-radius: 3rem;
+    opacity: 0.8;
+}
+
+.container{
+    padding: 20px;
+    height: 100%;
+    align-content: center;
+}
+
+.card-login{
+    margin-top: 50px;
+    margin-bottom: auto;
+    width: 400px;
+}
+
+.card-register{
+    margin-top: 10px;
+    margin-bottom: auto;
+    width: 400px;
+}
+
+.card-header{
+    background-color: rgb(8, 150, 150);
+    color: white;
+}
+
+.btn-login{
+    width: 100px;
+}
+
+.btn-reg{
+    width: 150px;
+    margin-bottom: -10px;
+}
+
+.btn:hover{
+    text-transform: uppercase;
+    color: rgb(8, 150, 150);
+}
+
+.links, .button:hover{
+    color: rgb(8, 150, 150);
+}
+
+.links:hover{
+    text-decoration: none;
+    color: grey;
+}

@@ -5,7 +5,7 @@ $donationModel= new Donation();
 
 $results = $donationModel->getDonByDonID($url_parts[2]);
 
-$categories = $donationModel->getCategories();
+$categories = $baseModel->getCategories();
 
 $donusers = $donationModel->getListByUsers($_SESSION["user_id"]);
 

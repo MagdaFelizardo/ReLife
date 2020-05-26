@@ -66,9 +66,9 @@ class User extends Base {
             mb_strlen($data["password"]) <= 1000
         ) {
             $query = $this->db->prepare("
-                SELECT user_id, email, password
+                SELECT user_id, email, password, admin
                 FROM users
-                WHERE email = ?
+                WHERE admin = 0 AND email = ? AND active_user = 1
             ");
 
             $query->execute([

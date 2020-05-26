@@ -9,13 +9,12 @@ if(isset($_POST["login"])) {
 
     $data = $bossModel->login($_POST);
 
-    if($_SESSION["user_id"] === '107' ){
-        echo 'entrou aqui';
+    if(isset($_SESSION["admin"])){
+        header("Location: /bigboss-pendingdons/");
         exit();
     }else{
         header("HTTP/1.1 403 Forbidden");
-        echo 'Não tem permissões para aceder';
-        die();
+        $unauthorized = true;
     }
 
 }

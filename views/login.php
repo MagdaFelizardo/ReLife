@@ -14,7 +14,7 @@
     
 
         <div class="container">
-            <header><h1><a href="<?=BASE_PATH?>"><img src="../imgs/infilogo.jpg" alt="logotipo"></a></h1> </header>
+            <header><h1><a href="/"><img src="../imgs/infilogo.jpg" alt="logotipo"></a></h1> </header>
         
             <main class="d-flex justify-content-center h-100">
                 <section class="card card-login">
@@ -24,9 +24,8 @@
                     <div class="card-body">
                     <?php if(isset($message)){ ?>
                     <div class="text-center mb-4 text-danger">O login falhou. Por favor verifica os dados que introduziste e tenta de novo.</div>
-                    <?php }elseif(isset($not_this_email)){?>
-                    <div class="text-center mb-4 text-info">Não pode aceder com este email, se pretender utilize outro email.</div>
                     <?php } ?>
+
                         <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
