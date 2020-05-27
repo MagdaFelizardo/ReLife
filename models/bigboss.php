@@ -35,7 +35,10 @@ class Boss extends Base {
     }
 
 
-        public function getPendingList() {
+    /////DONATION/////
+
+
+    public function getPendingList() {
 
         $query = $this->db->prepare("
         SELECT 
@@ -78,63 +81,6 @@ class Boss extends Base {
         $activedons = $query->fetchAll( PDO::FETCH_ASSOC );
 
         return $activedons;
-    }
-
-    public function getActiveUsers() {
-
-        $query = $this->db->prepare("
-        SELECT 
-            u.user_id, u.name, u.email, u.password, u.phone, u.city_id, u.active_user, u.register_date, ci.city
-        FROM users AS u
-            INNER JOIN cities AS ci USING(city_id)
-        WHERE u.active_user = 1 AND u.admin = 0
-        ORDER BY u.name, u.email ASC
-        ");
-
-        $query->execute();
-
-        $active_users = $query->fetchAll( PDO::FETCH_ASSOC );
-
-        return $active_users;
-
-    }
-
-    public function getInactiveUsers() {
-
-        $query = $this->db->prepare("
-        SELECT 
-            u.user_id, u.name, u.email, u.password, u.phone, u.city_id, u.active_user, u.register_date, ci.city
-        FROM users AS u
-            INNER JOIN cities AS ci USING(city_id)
-        WHERE u.active_user = 0 AND u.admin = 0
-        ORDER BY u.name, u.email ASC
-        ");
-
-        $query->execute();
-
-        $blocked_users = $query->fetchAll( PDO::FETCH_ASSOC );
-
-        return $blocked_users;
-
-    }
-
-    public function getBlockedUsers() {
-
-        $query = $this->db->prepare("
-        SELECT 
-            u.user_id, u.name, u.email, u.password, u.phone, u.city_id, u.active_user, u.register_date, ci.city
-        FROM users AS u
-            INNER JOIN cities AS ci USING(city_id)
-        WHERE u.active_user = 2 AND u.admin = 0
-        ORDER BY u.name, u.email ASC
-        ");
-
-        $query->execute();
-
-        $blocked_users = $query->fetchAll( PDO::FETCH_ASSOC );
-
-        return $blocked_users;
-
     }
 
     public function getDonByDonID($id) {
@@ -259,6 +205,116 @@ class Boss extends Base {
         $query->execute([$id]);
         
         return true;
+    }
+
+
+    //////USERS////////
+
+    public function getActiveUsers() {
+
+        $query = $this->db->prepare("
+        SELECT 
+            u.user_id, u.name, u.email, u.password, u.phone, u.city_id, u.active_user, u.register_date, ci.city
+        FROM users AS u
+            INNER JOIN cities AS ci USING(city_id)
+        WHERE u.active_user = 1 AND u.admin = 0
+        ORDER BY u.name, u.email ASC
+        ");
+
+        $query->execute();
+
+        $active_users = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $active_users;
+
+    }
+
+    public function getInactiveUsers() {
+
+        $query = $this->db->prepare("
+        SELECT 
+            u.user_id, u.name, u.email, u.password, u.phone, u.city_id, u.active_user, u.register_date, ci.city
+        FROM users AS u
+            INNER JOIN cities AS ci USING(city_id)
+        WHERE u.active_user = 0 AND u.admin = 0
+        ORDER BY u.name, u.email ASC
+        ");
+
+        $query->execute();
+
+        $blocked_users = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $blocked_users;
+
+    }
+
+    public function getBlockedUsers() {
+
+        $query = $this->db->prepare("
+        SELECT 
+            u.user_id, u.name, u.email, u.password, u.phone, u.city_id, u.active_user, u.register_date, ci.city
+        FROM users AS u
+            INNER JOIN cities AS ci USING(city_id)
+        WHERE u.active_user = 2 AND u.admin = 0
+        ORDER BY u.name, u.email ASC
+        ");
+
+        $query->execute();
+
+        $blocked_users = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $blocked_users;
+
+    }
+
+    public function getUser($data) {
+
+        $query = $this->db->prepare("
+        SELECT 
+            u.user_id, u.name, u.email, u.password, u.phone, u.city_id, u.active_user, u.register_date, ci.city
+        FROM users AS u
+            INNER JOIN cities AS ci USING(city_id)
+        WHERE (u.active_user = 1 || u.active_user = 0)  AND u.user_id = ?
+        ");
+
+        $query->execute([$data]);
+
+        $user = $query->fetch( PDO::FETCH_ASSOC );
+
+        return $user;
+
+    }
+
+    public function updateUser($data){
+
+        $data = $this->sanitizer($data);
+
+        if(
+            !empty($data["name"]) &&
+            !empty($data["phone"]) &&
+            mb_strlen($data["phone"]) > 5 &&
+            mb_strlen($data["phone"]) <= 32 && 
+            !empty($data["city_id"])
+        ) {
+            $query = $this->db->prepare("
+            UPDATE users
+            SET
+                name = ?,
+                phone = ?,
+                city_id = ?
+            WHERE 
+                user_id = ?
+        ");
+        
+        $query->execute([
+            $data["name"],
+            $data["phone"],
+            $data["city_id"],
+            $data["user_id"]
+        ]);
+
+        return $count = $query->rowCount();
+        }
     }
 
 

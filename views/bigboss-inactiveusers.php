@@ -56,10 +56,10 @@
                         <div class="media-body">
 
                             <div class="float-right">
-                                <button type="button" class="btn" id="accepted">
-                                    <a class="linkdon" href="#">
-                                        <i class="fas fa-user-check"></i>
-                                        <span> Validar Utilizador </span>
+                                <button type="button" class="btn" id="update-profile">
+                                    <a class="linkdon" href="/bigboss-useredit/'.$inactive_user["user_id"].'">
+                                        <i class="fas fa-user-edit"></i>
+                                        <span> Editar perfil </span>
                                     </a>
                                 </button>
                             </div>
@@ -96,6 +96,15 @@
                                 </div>
 
                             </div> <!-- end profile -->
+
+                            <div class="float-right">
+                                <button type="button" class="btn" id="accepted">
+                                    <a class="linkdon" href="#">
+                                        <i class="fas fa-user-check"></i>
+                                        <span> Validar Utilizador </span>
+                                    </a>
+                                </button>
+                            </div>
 
                         </div> <!-- end mediabody -->
                     </section>

@@ -8,31 +8,36 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/donations.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <title>Edit my Profile</title>
+        <title>User Edit</title>
     </head>
     <body>
-        
         <header>
-            <div class="container">
-                <h1><a href="<?='/'?>"><img class="logo img-fluid" src="../imgs/infilogo.jpg" alt="logotipo"></a></h1>
+                <div class="container">
+                    <h1><a href="/"><img class="logo img-fluid" src="../imgs/infilogo.jpg" alt="logotipo" width="300"></a></h1>
 
-                <nav class="navbar"> 
-                    <ul class="list-inline nav-area"> 
-                        <li class="list-inline-item nav2">
-                            <a class="nav-link1" href="<?='/myprofile/'?>">
-                                <i class="far fa-user pr-3"></i>O meu perfil
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="nav-link1" href="<?='/mydon/'?>">
-                                <i class="fas fa-hand-holding-heart pr-3"></i>As minhas doações
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                    <nav class="navbar"> 
+                        <ul class="list-inline"> 
+                            <li class="list-inline-item"><a class="nav-link1" href="/bigboss-logout/"><i class="fas fa-sign-out-alt pr-3"></i>Log Out</a></li>
+                        </ul>
+                    </nav>
 
-            </div>
-        </header>
+                    <nav class="navbar"> 
+                        <ul class="list-inline nav-area"> 
+                            <li class="list-inline-item nav2"><a class="nav-link1" href="/bigboss-pendingdons/"><i class="fas fa-hourglass-half pr-3"></i>Doações Pendentes</a></li>
+                            <li class="list-inline-item"><a class="nav-link1" href="/bigboss-activedons/"><i class="fas fa-hand-holding-heart pr-3"></i>Doações Activas</a></li>
+                            <li class="list-inline-item"><i class="far fa-user pr-3"></i>Gerir Utilizadores</li>
+                        </ul>
+                    </nav> 
+
+                    <nav class="navbar2"> 
+                        <ul class="list-inline"> 
+                            <li class="list-inline-item"><a class="nav-link1" href="/bigboss-activeusers/"><i class="fas fa-user-check pr-4"></i>Activos</a></li>
+                            <li class="list-inline-item"><a class="nav-link1" href="/bigboss-inactiveusers/"><i class="far fa-user pr-4"></i>Pendentes de Aprovação</a></li>
+                            <li class="list-inline-item"><a class="nav-link1" href="/bigboss-blockedusers/"><i class="fas fa-user-slash pr-3"></i>Bloqueados</a></li>
+                        </ul>
+                    </nav>  
+                </div>
+            </header>
             <main>
                 <div class="container">
 
@@ -46,7 +51,7 @@
                             <div class="media-body">
 
                             <?php if(isset($message)){ ?>
-                                <div class="text-right mb-4 text-danger">Lamentamos mas não foi possível alterar os dados.</div>
+                                <div class="text-right mb-4 text-danger">Não foi possível alterar os teus dados. Por favor verifica o que introduziste e tenta de novo.</div>
                             <?php }?>
 
                             
@@ -77,6 +82,9 @@
                                                 </select>
                                             </div>  
                                         </div>
+                                            
+                                        <input type="hidden" name="user_id" value="<?php echo $url_parts[2] ?>">  
+
 
                                         <div class="text-center">
                                             <div class="form-group">

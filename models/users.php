@@ -3,20 +3,6 @@ require_once("base.php");
 
 class User extends Base {
 
-    public function cityChoice(){
-
-        $query = $this->db->prepare("
-        SELECT city_id, city
-        FROM cities
-        ");
-
-        $query->execute();
-
-        $cities = $query->fetchAll( PDO::FETCH_ASSOC );
-
-        return $cities;
-    }
-
     public function register($data) {
 
         $data = $this->sanitizer($data);

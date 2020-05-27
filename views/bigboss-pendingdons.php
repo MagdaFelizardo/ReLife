@@ -12,7 +12,6 @@
         <title>Donations for Approval</title>
     </head>
     <body>
-        
         <header>
             <div class="container">
                 <h1><a href="/"><img class="logo img-fluid" src="../imgs/infilogo.jpg" alt="logotipo" width="300"></a></h1>
@@ -32,11 +31,7 @@
                 </nav>   
             </div>
         </header>
-
-
         <main>
-
-            
             <div class="container">
                 <?php
                 foreach($pendingdons as $pendingdon) {

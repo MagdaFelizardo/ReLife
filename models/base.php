@@ -75,4 +75,18 @@ class Base {
         return $categories;
     }
 
+    public function cityChoice(){
+
+        $query = $this->db->prepare("
+        SELECT city_id, city
+        FROM cities
+        ");
+
+        $query->execute();
+
+        $cities = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $cities;
+    }
+
 }

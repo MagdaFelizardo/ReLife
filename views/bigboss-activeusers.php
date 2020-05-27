@@ -57,7 +57,7 @@
 
                             <div class="float-right">
                                 <button type="button" class="btn" id="update-profile">
-                                    <a class="linkdon" href="#">
+                                    <a class="linkdon" href="/bigboss-useredit/'.$active_user["user_id"].'">
                                         <i class="fas fa-user-edit"></i>
                                         <span> Editar perfil </span>
                                     </a>
