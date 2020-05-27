@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/bigboss-don.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <script src="../js/bigboss-pendingdon.js"></script>
+        <script src="../js/bigboss-pendingdons.js"></script>
         <title>Donations for Approval</title>
     </head>
     <body>
@@ -51,11 +51,9 @@
 
                         <div class="media-body">
                             <div class="btn pull-right">
-                                <div>
-                                    <button class="buttons linkdon" value="approve" id="approvedon'.$btnid++.'" data-id="' .$pendingdon["donation_id"]. '">
-                                        <i class="far fa-check-circle changes-btn"></i><span class="ml-3">Aprovar</span>
-                                    </button>
-                                </div>
+                                <button class="buttons linkdon" value="approve" data-id="' .$pendingdon["donation_id"]. '">
+                                    <i class="far fa-check-circle changes-btn"></i><span class="ml-3">Aprovar</span>
+                                </button>
                             </div>
 
                             <div class="btn pull-right">
@@ -81,7 +79,7 @@
                             <p>'.$pendingdon["description"].'</p>
 
                             <div class="btn pull-right">
-                                <button type="button" class="buttons linkdon" value="delete" id="deletedon'.$btnid++.'" data-id="' .$pendingdon["donation_id"]. '">
+                                <button type="button" class="buttons linkdon" value="delete" data-id="' .$pendingdon["donation_id"]. '">
                                     <i class="far fa-trash-alt changes-btn"></i><span class="ml-3">Apagar</span>
                                 </button>
                             </div>

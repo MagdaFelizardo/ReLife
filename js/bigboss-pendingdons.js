@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () =>{
 
-    //BOTAO DE APAGAR//
+    //BOTAO DE APAGAR PENDENTES//
     const deleteDons = document.querySelectorAll('button[value="delete"]');
 
     function deleteDonBtn(id){
@@ -45,10 +45,8 @@ document.addEventListener("DOMContentLoaded", () =>{
         approveDon.addEventListener("click", (e) => {
             let id = e.target.parentElement.dataset.id;
             approveDonBtn(id);
-            e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+            e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
         });
     }
-
-
 
 });

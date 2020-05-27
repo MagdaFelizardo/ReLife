@@ -3,8 +3,6 @@ require("./models/bigboss.php");
 
 $bossModel= new Boss();
 
-$btnid = 1;
-
 if(isset($_SESSION["admin"])){
 
     $pendingdons = $bossModel->getPendingList();

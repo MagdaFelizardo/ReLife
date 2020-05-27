@@ -12,5 +12,22 @@ else{
     die("Bad Request");
 }
 
+if($_SERVER["REQUEST_METHOD"] === "DELETE"){
+
+    $id = file_get_contents("php://input");
+
+    $deleted = $bossModel->deleteDonation($id);
+
+    die(json_encode(
+        ["message" => "OK"]
+    ));
+
+}elseif($_SERVER["REQUEST_METHOD"] === "POST"){
+    $id = file_get_contents("php://input");
+
+    $disapproved = $bossModel->disapproveDon($id);
+}
+
+
 
 require("./views/bigboss-activedons.php");

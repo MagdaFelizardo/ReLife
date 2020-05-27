@@ -235,7 +235,20 @@ class Boss extends Base {
         return $count = $query->rowCount();
     }
 
+    public function disapproveDon($id){
+       
+        $query = $this->db->prepare("
+        UPDATE donations
+        SET
+            active = 0
+        WHERE 
+            donation_id = ?
+        ");
+        
+        $query->execute([$id]);
 
+        return $count = $query->rowCount();
+    }
 
     public function deleteDonation($id) {
 
