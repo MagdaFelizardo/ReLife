@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/bigboss-don.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="../js/bigboss-pendingdon.js"></script>
         <title>Donations for Approval</title>
     </head>
     <body>
@@ -51,11 +52,9 @@
                         <div class="media-body">
                             <div class="btn pull-right">
                                 <div>
-                                    <a class="linkdon" href="/bigboss-donaproves/' .$pendingdon["donation_id"]. '">
-                                        <button class="buttons" id="approve-don">
-                                            <i class="far fa-check-circle changes-btn"></i><span class="ml-3">Aprovar</span>
-                                        </button>
-                                    </a>
+                                    <button class="buttons linkdon" value="approve" id="approvedon'.$btnid++.'" data-id="' .$pendingdon["donation_id"]. '">
+                                        <i class="far fa-check-circle changes-btn"></i><span class="ml-3">Aprovar</span>
+                                    </button>
                                 </div>
                             </div>
 
@@ -82,11 +81,9 @@
                             <p>'.$pendingdon["description"].'</p>
 
                             <div class="btn pull-right">
-                                <a class="linkdon" href="/bigboss-dondelete/' .$pendingdon["donation_id"]. '">
-                                    <button type="button" class="buttons" id="delete-don">
-                                        <i class="far fa-trash-alt changes-btn"></i><span class="ml-3">Apagar</span>
-                                    </button>
-                                </a>
+                                <button type="button" class="buttons linkdon" value="delete" id="deletedon'.$btnid++.'" data-id="' .$pendingdon["donation_id"]. '">
+                                    <i class="far fa-trash-alt changes-btn"></i><span class="ml-3">Apagar</span>
+                                </button>
                             </div>
 
                             <div class="mt-4">
@@ -95,11 +92,11 @@
                                     <span class="ml-1"> ' .$pendingdon["name"]. '</span>
                                 </a>
                             </div>
-
                         </div>
+                    </div> <!-- media   -->
                 </div>  <!-- well   -->
+                '; } ?>
             </div> <!-- end container --> 
-            '; } ?>
         </main>
     </body>
 </html>
