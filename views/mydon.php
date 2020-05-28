@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/donations.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <title>My Area: Donations</title>
+        <title>My Donations</title>
     </head>
     <body>
         

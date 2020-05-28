@@ -28,56 +28,54 @@
         </header>
         
         <main>    
-            <?php
+      
+            <div class="container">
+                <?php 
                 if(!empty($items)) {
-                    foreach($items as $item) {
-                        echo '          
-                            <div class="container">
-                                <div class="well">
-                                    <div class="media">
-                                        <a class="pull-left" href="./?controller=donations&donation_id=' .$item["donation_id"]. '">
-                                            <img class="media-object" src="/imgs/uploads/' .$item["photo"]. '" width="200px">
-                                        </a>
-                                        <div class="media-body">
-                                            <h1 class="media-heading donation-title text-capitalize">' .$item["item"]. '</h1>
-                                            <div class="mb-4 mt-4">
-                                                <i class="glyphicon glyphicon-calendar"></i> '.$item["donation_date"].' |
-                                                <a class="linkdon text-capitalize" href="/doncities/'.$item["city_id"].'/?page='.$page_number.' "><i class="glyphicon glyphicon-home"></i> ' .$item["city"]. ' |</a>
-                                                <a class="linkdon text-capitalize" href="/dontags/'.$item["category_id"].'/?page='.$page_number.'"><i class="fas fa-tag"></i> ' .$item["category"]. '</a>
-                                            </div>
-                                            <p class="first-letter-cap">' .$item["description"]. '</p>
-                                            <div class="float-right mt-4">
-                                                <a class="linkdon text-capitalize" href=" /donusers/'.$item["user_id"].'/?page='.$page_number.' "><i class="glyphicon glyphicon-user text-capitalize"></i> ' .$item["name"]. ' | </a>
-                                                <span><i class="glyphicon glyphicon-envelope"></i> ' .$item["email"]. ' | </span>
-                                                <span><i class="glyphicon glyphicon-phone"></i> ' .$item["phone"]. ' </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  <!-- well   -->
-                                <div class="backdonations">
-                                    <button type="button" class="btn btn link">
-                                        <a class="back" href="/donations?page='.$page_number.'">&#8634</a>
-                                    </button>
-                                </div>
-                            </div> <!-- end container -->
-                            ';
-                    } 
-                }else{ 
-                    echo '
-                    <div class="container">
-                        <div class="text-center noresults">
-                            <i class="fas fa-poo imgs-noresults"></i>
-                            Ups! Não encontrámos resultados! Tenta de novo 
-                            <i class="far fa-grin-beam-sweat imgs-noresults"></i>
+                foreach($items as $item) { ?>
+                            
+                <div class="well">
+                    <div class="media">
+                        <a class="pull-left" href="./?controller=donations&donation_id= <?php echo $item["donation_id"] ?>">
+                            <img class="media-object" src="/imgs/uploads/<?php echo $item["photo"] ?>" width="200px">
+                        </a>
+                        <div class="media-body">
+                            <h1 class="media-heading donation-title text-capitalize"><?php echo $item["item"] ?></h1>
+                            <div class="mb-4 mt-4">
+                                <i class="glyphicon glyphicon-calendar"></i><?php echo $item["donation_date"] ?> |
+                                <a class="linkdon text-capitalize" href="/doncities/<?php echo $item["city_id"] ?>/?page=<?php echo $page_number ?> ">
+                                    <i class="glyphicon glyphicon-home"></i> <?php echo $item["city"] ?> |
+                                </a>
+                                <a class="linkdon text-capitalize" href="/dontags/<?php echo $item["category_id"] ?>/?page=<?php echo $page_number ?>">
+                                    <i class="fas fa-tag"></i> <?php echo $item["category"] ?>
+                                </a>
+                            </div>
+                            <p class="first-letter-cap"><?php echo $item["description"] ?> </p>
+                            <div class="float-right mt-4">
+                                <a class="linkdon text-capitalize" href=" /donusers/<?php echo $item["user_id"] ?>/?page=<?php echo $page_number ?> ">
+                                    <i class="glyphicon glyphicon-user text-capitalize"></i> <?php echo $item["name"] ?> | 
+                                </a>
+                                <span><i class="glyphicon glyphicon-envelope"></i> <?php echo $item["email"] ?> | </span>
+                                <span><i class="glyphicon glyphicon-phone"></i> <?php echo $item["phone"] ?> </span>
+                            </div>
                         </div>
-                        <div class="backdonations1">
-                            <button type="button" class="btn btn link">
-                                <a class="back" href="/donations/?page='.$page_number.'">&#8634</a>
-                            </button>
-                        </div>
-                    </div> <!-- end container -->';
-                }
-            ?>
+                    </div>
+                </div>
+                <?php ; } }else{ ?>
+              
+                <div class="text-center noresults">
+                    <i class="fas fa-poo imgs-noresults"></i>
+                    Ups! Não encontrámos resultados! Tenta de novo 
+                    <i class="far fa-grin-beam-sweat imgs-noresults"></i>
+                </div>
+
+                <?php ; } ?>
+                <div class="backdonations">
+                    <button type="button" class="btn btn link">
+                        <a class="back" href="/donations/?page=<?php echo $page_number ?> ">&#8634</a>
+                    </button>
+                </div>
+            </div> <!-- end container -->
         </main>
     </body>
 </html>

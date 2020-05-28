@@ -29,6 +29,13 @@
                     </ul>
                 </nav>  
 
+                <div class="searchbar float-right mb-4">
+                    <form class="form-inline" action="/bigboss-searchdon/" method="GET">
+                        <input class="form-control" type="search" name="search" placeholder="Doações" aria-label="search">
+                        <button class="bg-light text-dark btnsearch" type="submit" name="send"><i class="fas fa-search"></i></button>
+                    </form> 
+                </div>
+
                 <nav class="navbar2"> 
                     <ul class="list-inline">  
                         <li class="list-inline-item nav2"><i class="fas fa-hourglass-half pr-3"></i>Doações Pendentes</li>
@@ -38,7 +45,7 @@
             </div>
         </header>
         <main>
-            <div class="container">
+            <div class="container mt-4">
                 <?php
                 foreach($pendingdons as $pendingdon) {
                 echo '

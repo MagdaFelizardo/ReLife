@@ -30,6 +30,13 @@
                     </ul>
                 </nav> 
 
+                <div class="searchbar float-right">
+                    <form class="form-inline" action="/bigboss-searchusers/" method="GET">
+                        <input class="form-control" type="search" name="search" placeholder="Utilizadores" aria-label="search">
+                        <button class="bg-light text-dark btnsearch" type="submit" name="send"><i class="fas fa-search"></i></button>
+                    </form> 
+                </div>
+                <br>
                 <nav class="navbar2"> 
                     <ul class="list-inline"> 
                         <li class="list-inline-item"><a class="nav-link1" href="/bigboss-activeusers/"><i class="fas fa-user-check pr-4"></i>Activos</a></li>
@@ -41,7 +48,7 @@
         </header>
 
         <main>
-            <div class="container">
+            <div class="container mt-4">
             <?php
                     foreach($inactive_users as $inactive_user) {
                     echo '

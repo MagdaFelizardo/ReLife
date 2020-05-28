@@ -26,7 +26,7 @@ $controllers = ["homepage", "donations", "dontags", "doncities",
                 "deletedonation", "forgotpass", "bigboss-login", "bigboss-logout", "bigboss-pendingdons",
                 "bigboss-activedons", "bigboss-activeusers", "bigboss-inactiveusers", "bigboss-blockedusers",
                 "bigboss-editdon", "bigboss-editphoto", "bigboss-useredit", "bigboss-confirmblock",
-                "bigboss-blockaccount", "bigboss-confirm-unblock", "bigboss-unblockaccount"];
+                "bigboss-blockaccount", "bigboss-confirm-unblock", "bigboss-unblockaccount", "bigboss-searchdon"];
 
 
 //redirecciona para o controller que é suposto

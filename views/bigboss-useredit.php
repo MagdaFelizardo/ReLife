@@ -29,7 +29,7 @@
                     </nav> 
 
                     <nav class="navbar2"> 
-                        <ul class="list-inline"> 
+                        <ul class="list-inline">
                             <li class="list-inline-item"><a class="nav-link1" href="/bigboss-activeusers/"><i class="fas fa-user-check pr-4"></i>Activos</a></li>
                             <li class="list-inline-item"><a class="nav-link1" href="/bigboss-inactiveusers/"><i class="far fa-user pr-4"></i>Pendentes de Aprovação</a></li>
                             <li class="list-inline-item"><a class="nav-link1" href="/bigboss-blockedusers/"><i class="fas fa-user-slash pr-3"></i>Bloqueados</a></li>
