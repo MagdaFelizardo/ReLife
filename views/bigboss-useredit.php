@@ -5,15 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
-        <link rel="stylesheet" type="text/css" href="../css/donations.css">
+        <link rel="stylesheet" type="Text/css" href="/css/mycss.css">
+        <link rel="stylesheet" type="text/css" href="/css/donations.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <title>User Edit</title>
     </head>
     <body>
         <header>
                 <div class="container">
-                    <h1><a href="/"><img class="logo img-fluid" src="../imgs/infilogo.jpg" alt="logotipo" width="300"></a></h1>
+                    <h1><a href="/"><img class="logo img-fluid" src="/imgs/infilogo.jpg" alt="logotipo" width="300"></a></h1>
 
                     <nav class="navbar"> 
                         <ul class="list-inline"> 

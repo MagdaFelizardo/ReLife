@@ -11,8 +11,11 @@ if(isset($_POST["update-profile"]) && isset($_SESSION["admin"])) {
 
     $rowcount = $bossModel->updateUser($_POST);
 
-    if($rowcount > 0){
+    if($rowcount > 0 && ($_GET["source"]) === "active") {
         header("Location: /bigboss-activeusers/ ");
+        exit();
+    }elseif($rowcount > 0 && ($_GET["source"]) === "inactive"){
+        header("Location: /bigboss-inactiveusers/ ");
         exit();
     }else{
         $message = "edição falhou";

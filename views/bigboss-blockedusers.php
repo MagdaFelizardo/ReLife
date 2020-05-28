@@ -57,7 +57,7 @@
 
                             <div class="float-right">
                                 <button type="button" class="btn" id="unblock">
-                                    <a class="linkdon" href="#">
+                                    <a class="linkdon" href="/bigboss-confirm-unblock/'.$blocked_user["user_id"].'">
                                         <i class="fas fa-user-check"></i>
                                         <span> Desbloquear Utilizador </span>
                                     </a>

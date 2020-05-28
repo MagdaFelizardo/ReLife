@@ -8,6 +8,8 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/bigboss-don.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="../js/bigboss-activeusers.js"></script>
+        
         <title>Manage Active Users</title>
     </head>
     <body>
@@ -56,11 +58,18 @@
                         <div class="media-body">
 
                             <div class="float-right">
-                                <button type="button" class="btn" id="update-profile">
-                                    <a class="linkdon" href="/bigboss-useredit/'.$active_user["user_id"].'">
+                                <button type="button" class="btn">
+                                    <a class="linkdon" href="/bigboss-useredit/'.$active_user["user_id"].'/?source=active">
                                         <i class="fas fa-user-edit"></i>
                                         <span> Editar perfil </span>
                                     </a>
+                                </button>
+                            </div>
+
+                            <div class="float-right">
+                                <button type="button" class="btn linkdon" value="deactivate-user" data-id="' .$active_user["user_id"]. '">
+                                    <i class="far fa-user pr-1"></i>
+                                    <span> Colocar pendente </span>
                                 </button>
                             </div>
 
@@ -99,7 +108,7 @@
 
                             <div class="float-right">
                                 <div class="btn-block">
-                                    <a class="linkdon" href="#">
+                                    <a class="linkdon" href="/bigboss-confirmblock/'.$active_user["user_id"].'/source=active">
                                         <i class="fas fa-user-slash"></i>
                                         <span >Bloquear utilizador</span>
                                     </a>

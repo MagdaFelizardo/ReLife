@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/bigboss-don.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="../js/bigboss-inactiveusers.js"></script>
         <title>Manage Inactive Users</title>
     </head>
     <body>
@@ -57,13 +58,19 @@
 
                             <div class="float-right">
                                 <button type="button" class="btn" id="update-profile">
-                                    <a class="linkdon" href="/bigboss-useredit/'.$inactive_user["user_id"].'">
+                                    <a class="linkdon" href="/bigboss-useredit/'.$inactive_user["user_id"].'/?source=inactive">
                                         <i class="fas fa-user-edit"></i>
                                         <span> Editar perfil </span>
                                     </a>
                                 </button>
                             </div>
 
+                            <div class="float-right">
+                                <button type="button" class="btn linkdon" value="activate-user" data-id="' .$inactive_user["user_id"]. '">
+                                    <i class="fas fa-user-check"></i>
+                                    <span> Validar Utilizador </span>
+                                </button>
+                            </div>
 
                             <div class="profile">
 
@@ -98,13 +105,12 @@
                             </div> <!-- end profile -->
 
                             <div class="float-right">
-                                <button type="button" class="btn" id="accepted">
-                                    <a class="linkdon" href="#">
-                                        <i class="fas fa-user-check"></i>
-                                        <span> Validar Utilizador </span>
-                                    </a>
-                                </button>
+                                <a class="linkdon btn" href="/bigboss-confirmblock/'.$inactive_user["user_id"].'/source=inactive">
+                                    <i class="fas fa-user-slash"></i>
+                                    <span >Bloquear utilizador</span>
+                                </a>
                             </div>
+
 
                         </div> <!-- end mediabody -->
                     </section>

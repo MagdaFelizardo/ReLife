@@ -285,6 +285,22 @@ class Boss extends Base {
 
     }
 
+    public function getBlockedUser($user_id) {
+
+        $query = $this->db->prepare("
+        SELECT user_id, name
+        FROM users 
+        WHERE active_user = 2 AND user_id = ?
+        ");
+
+        $query->execute([$user_id]);
+
+        $blocked_user = $query->fetch( PDO::FETCH_ASSOC );
+
+        return $blocked_user;
+
+    }
+
     public function updateUser($data){
 
         $data = $this->sanitizer($data);
@@ -315,6 +331,131 @@ class Boss extends Base {
 
         return $count = $query->rowCount();
         }
+    }
+
+
+    public function blockUser($user_id){
+
+    $query = $this->db->prepare("
+        UPDATE users
+        SET
+            active_user = 2
+        WHERE 
+            user_id = ?
+    ");
+    
+    $query->execute([
+        $user_id
+    ]);
+
+
+    $query2 = $this->db->prepare("
+        UPDATE donations
+        SET
+            active = 2
+        WHERE 
+            user_id = ?
+    ");
+    
+    $query2->execute([
+        $user_id
+    ]);
+
+    return $count = $query->rowCount() && $count2 = $query2->rowCount();
+
+    }
+
+    public function unblockUser($user_id){
+
+        $query = $this->db->prepare("
+            UPDATE users
+            SET
+                active_user = 1
+            WHERE 
+                user_id = ?
+        ");
+        
+        $query->execute([
+            $user_id
+        ]);
+    
+    
+        $query2 = $this->db->prepare("
+            UPDATE donations
+            SET
+                active = 1
+            WHERE 
+                user_id = ?
+        ");
+        
+        $query2->execute([
+            $user_id
+        ]);
+    
+        return $count = $query->rowCount() && $count2 = $query2->rowCount();
+    
+        }
+
+    public function deactivateUser($user_id){
+
+        $query = $this->db->prepare("
+            UPDATE users
+            SET
+                active_user = 0
+            WHERE 
+                user_id = ?
+        ");
+        
+        $query->execute([
+            $user_id
+        ]);
+    
+    
+        $query2 = $this->db->prepare("
+            UPDATE donations
+            SET
+                active = 0
+            WHERE 
+                user_id = ?
+        ");
+        
+        $query2->execute([
+            $user_id
+        ]);
+    
+        return $count = $query->rowCount() && $count2 = $query2->rowCount();
+    
+    }
+
+    public function activateUser($user_id){
+
+        $query = $this->db->prepare("
+            UPDATE users
+            SET
+                active_user = 1
+            WHERE 
+                user_id = ?
+        ");
+        
+        $query->execute([
+            $user_id
+        ]);
+    
+    
+        $query2 = $this->db->prepare("
+            UPDATE donations
+            SET
+                active = 1
+            WHERE 
+                user_id = ?
+        ");
+        
+        $query2->execute([
+            $user_id
+        ]);
+    
+        return $count = $query->rowCount() && $count2 = $query2->rowCount();
+    
     }
 
 

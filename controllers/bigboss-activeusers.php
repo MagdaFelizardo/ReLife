@@ -12,7 +12,12 @@ else{
     die("Bad Request");
 }
 
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+    $user_id = file_get_contents("php://input");
 
+    $deactivateUser = $bossModel->deactivateUser($user_id);
+    
+}
 
 
 require("./views/bigboss-activeusers.php");
