@@ -51,6 +51,15 @@
     color: black;
 }
 
+.noresults{
+    margin-top: 3%;
+    font-size: medium;
+}
+
+.imgs-noresults{
+    font-size: 150%;
+}
+
 
 /* //////////////////MANAGE USERS ////////////// */
 
