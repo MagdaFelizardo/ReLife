@@ -235,6 +235,34 @@ class Boss extends Base {
         return $items;
     }
 
+    public function searchActiveDons($search) {
+
+        $search = $this->sanitizeSearch($search);
+
+        $query = $this->db->prepare("
+        SELECT 
+            d.donation_id, d.item, d.description, d.photo, d.donation_date, d.active,
+            u.user_id, u.name, u.email, u.phone, 	
+            c.category_id, c.category, ci.city_id, ci.city
+        FROM donations AS d
+            INNER JOIN cities AS ci USING(city_id)
+            INNER JOIN users AS u USING(user_id)
+            INNER JOIN categories AS c USING(category_id)
+        WHERE ( item LIKE ? OR 
+              d.description LIKE ? OR 
+              c.category LIKE ? OR 
+              ci.city LIKE ? )
+              AND active = 1
+        ORDER BY donation_date DESC
+        ");
+
+        $query->execute(["%".$search."%", "%".$search."%", "%".$search."%", "%".$search."%"]);
+
+        $items = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $items;
+    }
+
 
     //////USERS////////
 
@@ -486,5 +514,80 @@ class Boss extends Base {
     
     }
 
+    public function searchActiveUsers($search) {
+
+        $search = $this->sanitizeSearch($search);
+
+        $query = $this->db->prepare("
+        SELECT 
+            u.user_id, u.name, u.email, u.phone, u.city_id, u.register_date, ci.city
+        FROM users AS u
+            INNER JOIN cities AS ci USING(city_id) 
+        WHERE ( u.name LIKE ? OR 
+              u.email LIKE ? OR 
+              u.phone LIKE ? OR 
+              ci.city LIKE ? )
+              AND u.active_user = 1 
+              AND u.admin = 0
+        ORDER BY u.name DESC
+        ");
+
+        $query->execute(["%".$search."%", "%".$search."%", "%".$search."%", "%".$search."%"]);
+
+        $activeusers = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $activeusers;
+    }
+
+
+    public function searchInactiveUsers($search) {
+
+        $search = $this->sanitizeSearch($search);
+
+        $query = $this->db->prepare("
+        SELECT 
+            u.user_id, u.name, u.email, u.phone, u.city_id, u.register_date, ci.city
+        FROM users AS u
+            INNER JOIN cities AS ci USING(city_id) 
+        WHERE ( u.name LIKE ? OR 
+              u.email LIKE ? OR 
+              u.phone LIKE ? OR 
+              ci.city LIKE ? )
+              AND u.active_user = 0 
+              AND u.admin = 0
+        ORDER BY u.name DESC
+        ");
+
+        $query->execute(["%".$search."%", "%".$search."%", "%".$search."%", "%".$search."%"]);
+
+        $inactiveusers = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $inactiveusers;
+    }
+
+    public function searchBlockedUsers($search) {
+
+        $search = $this->sanitizeSearch($search);
+
+        $query = $this->db->prepare("
+        SELECT 
+            u.user_id, u.name, u.email, u.phone, u.city_id, u.register_date, ci.city
+        FROM users AS u
+            INNER JOIN cities AS ci USING(city_id) 
+        WHERE ( u.name LIKE ? OR 
+              u.email LIKE ? OR 
+              u.phone LIKE ? OR 
+              ci.city LIKE ? )
+              AND u.active_user = 2 
+              AND u.admin = 0
+        ORDER BY u.name DESC
+        ");
+
+        $query->execute(["%".$search."%", "%".$search."%", "%".$search."%", "%".$search."%"]);
+
+        $blockedusers = $query->fetchAll( PDO::FETCH_ASSOC );
+
+        return $blockedusers;
+    }
 
 }

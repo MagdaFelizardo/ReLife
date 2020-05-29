@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="../css/bigboss-don.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../js/bigboss-activedons.js"></script>
-        <title>Active Donations</title>
+        <title>Search Active Donations</title>
     </head>
     <body>
         
@@ -40,7 +40,7 @@
                 <nav class="navbar2"> 
                     <ul class="list-inline">  
                         <li class="list-inline-item nav2"><a class="nav-link1" href="/bigboss-pendingdons/"><i class="fas fa-hourglass-half pr-3"></i>Doações Pendentes</a></li>
-                        <li class="list-inline-item"><i class="fas fa-hand-holding-heart pr-3"></i>Doações Activas</li>
+                        <li class="list-inline-item"><a class="nav-link1" href="/bigboss-activedons/"><i class="fas fa-hand-holding-heart pr-3"></i>Doações Activas</a></li>
                     </ul>
                 </nav>    
             </div>
@@ -51,7 +51,8 @@
 
             <div class="container mt-4">
 
-                <?php
+            <?php 
+                if(!empty($activedons)) {
                 foreach($activedons as $activedon) {
                 echo '
                 <div class="well">
@@ -105,8 +106,17 @@
                             </div>
                         </div>
                     </div> <!-- media   -->
-                </div>  <!-- well   -->
-                '; } ?>
+                </div>  <!-- well   -->'
+
+                ; } }else{ ?>
+              
+                    <div class="text-center noresults">
+                        Não encontrámos qualquer resultado. 
+                        <i class="far fa-grin-beam-sweat imgs-noresults"></i>
+                    </div>
+    
+                    <?php ; } ?>
+
             </div> <!-- end container -->
         </main>
     </body>

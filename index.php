@@ -21,12 +21,15 @@ $controller = "homepage";
 // white list de controllers
 $controllers = ["homepage", "donations", "dontags", "doncities", 
                 "donusers", "searchitem", "register", "login", "logout", 
-                "myprofile", "myprofiledit", "changepass", "confirmdelete-account", "deleteaccount",
-                "formdon", "mydon", "mydonedit", "mydonphotoedit", "mydondelete", 
-                "deletedonation", "forgotpass", "bigboss-login", "bigboss-logout", "bigboss-pendingdons",
-                "bigboss-activedons", "bigboss-activeusers", "bigboss-inactiveusers", "bigboss-blockedusers",
+                "myprofile", "myprofiledit", "changepass", "confirmdelete-account", 
+                "deleteaccount", "formdon", "mydon", "mydonedit", "mydonphotoedit", 
+                "mydondelete", "deletedonation", "forgotpass", "bigboss-login", 
+                "bigboss-logout", "bigboss-pendingdons", "bigboss-activedons", 
+                "bigboss-activeusers", "bigboss-inactiveusers", "bigboss-blockedusers",
                 "bigboss-editdon", "bigboss-editphoto", "bigboss-useredit", "bigboss-confirmblock",
-                "bigboss-blockaccount", "bigboss-confirm-unblock", "bigboss-unblockaccount", "bigboss-searchpendingdons"];
+                "bigboss-blockaccount", "bigboss-confirm-unblock", "bigboss-unblockaccount", 
+                "bigboss-searchpendingdons", "bigboss-searchactivedons", "bigboss-searchactiveusers",
+                "bigboss-search-inactive-users", "bigboss-search-blockedusers"];
 
 
 //redirecciona para o controller que é suposto

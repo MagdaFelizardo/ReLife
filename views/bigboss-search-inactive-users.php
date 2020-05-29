@@ -8,9 +8,8 @@
         <link rel="stylesheet" type="Text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/bigboss-don.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <script src="../js/bigboss-activeusers.js"></script>
-        
-        <title>Manage Active Users</title>
+        <script src="../js/bigboss-inactiveusers.js"></script>
+        <title>Manage Inactive Users</title>
     </head>
     <body>
         
@@ -23,25 +22,24 @@
                         <li class="list-inline-item"><a class="nav-link1" href="/bigboss-logout/"><i class="fas fa-sign-out-alt pr-3"></i>Log Out</a></li>
                     </ul>
                 </nav>
-
+            
                 <nav class="navbar"> 
                     <ul class="list-inline nav-area"> 
                         <li class="list-inline-item nav2"><a class="nav-link1" href="/bigboss-pendingdons/"><i class="fas fa-hand-holding pr-3"></i>Gerir Doações</a></li>
                         <li class="list-inline-item"><i class="far fa-user pr-3"></i>Gerir Utilizadores</a></li>
                     </ul>
-                </nav>
-                
+                </nav> 
+
                 <div class="searchbar float-right">
-                    <form class="form-inline" action="/bigboss-searchactiveusers/" method="GET">
-                        <input class="form-control" type="search" name="search" placeholder="Utilizadores activos" aria-label="search">
+                    <form class="form-inline" action="/bigboss-search-inactive-users/" method="GET">
+                        <input class="form-control" type="search" name="search" placeholder="Utilizadores pendentes" aria-label="search">
                         <button class="bg-light text-dark btnsearch" type="submit" name="send"><i class="fas fa-search"></i></button>
                     </form> 
                 </div>
                 <br>
-
                 <nav class="navbar2"> 
                     <ul class="list-inline"> 
-                        <li class="list-inline-item"><i class="fas fa-user-check pr-4"></i>Activos</li>
+                        <li class="list-inline-item"><a class="nav-link1" href="/bigboss-activeusers/"><i class="fas fa-user-check pr-4"></i>Activos</a></li>
                         <li class="list-inline-item"><a class="nav-link1" href="/bigboss-inactiveusers/"><i class="far fa-user pr-4"></i>Pendentes de Aprovação</a></li>
                         <li class="list-inline-item"><a class="nav-link1" href="/bigboss-blockedusers/"><i class="fas fa-user-slash pr-3"></i>Bloqueados</a></li>
                     </ul>
@@ -51,9 +49,10 @@
 
         <main>
             <div class="container mt-4">
-            <?php
-                    foreach($active_users as $active_user) {
-                    echo '
+                <?php
+                if(!empty($inactive_users)){
+                foreach($inactive_users as $inactive_user) {
+                echo '
                 <div class="well">
                 
                     <section class="media">
@@ -65,8 +64,8 @@
                         <div class="media-body">
 
                             <div class="float-right">
-                                <button type="button" class="btn">
-                                    <a class="linkdon" href="/bigboss-useredit/'.$active_user["user_id"].'/?source=active">
+                                <button type="button" class="btn" id="update-profile">
+                                    <a class="linkdon" href="/bigboss-useredit/'.$inactive_user["user_id"].'/?source=inactive">
                                         <i class="fas fa-user-edit"></i>
                                         <span> Editar perfil </span>
                                     </a>
@@ -74,58 +73,64 @@
                             </div>
 
                             <div class="float-right">
-                                <button type="button" class="btn linkdon" value="deactivate-user" data-id="' .$active_user["user_id"]. '">
-                                    <i class="far fa-user pr-1"></i>
-                                    <span> Colocar pendente </span>
+                                <button type="button" class="btn linkdon" value="activate-user" data-id="' .$inactive_user["user_id"]. '">
+                                    <i class="fas fa-user-check"></i>
+                                    <span> Validar Utilizador </span>
                                 </button>
                             </div>
-
 
                             <div class="profile">
 
                                 <div class="profile-itens mb-4">
                                     <i class="fas fa-user"></i>
                                     <span class="txt">Nome: 
-                                        <span class="font-italic">'.$active_user["name"].'</span>
+                                        <span class="font-italic">'.$inactive_user["name"].'</span>
                                     </span>
                                 </div>
 
                                 <div class="profile-itens">
                                     <i class="fas fa-envelope"></i>
                                     <span class="txt">Email: 
-                                        <span class="font-italic">'.$active_user["email"].'</span>
+                                        <span class="font-italic">'.$inactive_user["email"].'</span>
                                     </span>
                                 </div>
 
                                 <div class="profile-itens">
                                     <i class="fas fa-phone"></i>
                                     <span class="txt">Contacto: 
-                                        <span class="font-italic">'.$active_user["phone"].'</span>
+                                        <span class="font-italic">'.$inactive_user["phone"].'</span>
                                     </span>
                                 </div>
 
                                 <div class="profile-itens">
                                     <i class="fas fa-home"></i>
                                     <span class="txt">Localidade: 
-                                        <span class="font-italic">'.$active_user["city"].'</span>
+                                        <span class="font-italic">'.$inactive_user["city"].'</span>
                                     </span>
                                 </div>
 
                             </div> <!-- end profile -->
 
                             <div class="float-right">
-                                <div class="btn-block">
-                                    <a class="linkdon" href="/bigboss-confirmblock/'.$active_user["user_id"].'/source=active">
-                                        <i class="fas fa-user-slash"></i>
-                                        <span >Bloquear utilizador</span>
-                                    </a>
-                                </div>
+                                <a class="linkdon btn" href="/bigboss-confirmblock/'.$inactive_user["user_id"].'/source=inactive">
+                                    <i class="fas fa-user-slash"></i>
+                                    <span >Bloquear utilizador</span>
+                                </a>
                             </div>
-    
+
+
                         </div> <!-- end mediabody -->
                     </section>
                 </div>  <!-- well   -->
-                '; } ?>
+                '
+                ; } }else{ ?>
+              
+                <div class="text-center noresults">
+                    Não encontrámos qualquer resultado. 
+                    <i class="far fa-grin-beam-sweat imgs-noresults"></i>
+                </div>
+
+                <?php ; } ?>
             </div> <!-- end container -->
             
         </main>

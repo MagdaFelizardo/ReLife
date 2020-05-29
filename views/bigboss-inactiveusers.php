@@ -31,8 +31,8 @@
                 </nav> 
 
                 <div class="searchbar float-right">
-                    <form class="form-inline" action="/bigboss-searchusers/" method="GET">
-                        <input class="form-control" type="search" name="search" placeholder="Utilizadores" aria-label="search">
+                    <form class="form-inline" action="/bigboss-search-inactive-users/" method="GET">
+                        <input class="form-control" type="search" name="search" placeholder="Utilizadores pendentes" aria-label="search">
                         <button class="bg-light text-dark btnsearch" type="submit" name="send"><i class="fas fa-search"></i></button>
                     </form> 
                 </div>

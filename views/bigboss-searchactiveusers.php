@@ -10,7 +10,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../js/bigboss-activeusers.js"></script>
         
-        <title>Manage Active Users</title>
+        <title>Search Active Users</title>
     </head>
     <body>
         
@@ -41,9 +41,15 @@
 
                 <nav class="navbar2"> 
                     <ul class="list-inline"> 
-                        <li class="list-inline-item"><i class="fas fa-user-check pr-4"></i>Activos</li>
-                        <li class="list-inline-item"><a class="nav-link1" href="/bigboss-inactiveusers/"><i class="far fa-user pr-4"></i>Pendentes de Aprovação</a></li>
-                        <li class="list-inline-item"><a class="nav-link1" href="/bigboss-blockedusers/"><i class="fas fa-user-slash pr-3"></i>Bloqueados</a></li>
+                        <li class="list-inline-item">
+                            <a class="nav-link1" href="/bigboss-activeusers/"><i class="fas fa-user-check pr-4"></i>Activos</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="nav-link1" href="/bigboss-inactiveusers/"><i class="far fa-user pr-4"></i>Pendentes de Aprovação</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="nav-link1" href="/bigboss-blockedusers/"><i class="fas fa-user-slash pr-3"></i>Bloqueados</a>
+                        </li>
                     </ul>
                 </nav>  
             </div>
@@ -52,8 +58,10 @@
         <main>
             <div class="container mt-4">
             <?php
-                    foreach($active_users as $active_user) {
-                    echo '
+                 
+                if(!empty($active_users)) {
+                foreach($active_users as $active_user) {
+                echo '
                 <div class="well">
                 
                     <section class="media">
@@ -125,7 +133,16 @@
                         </div> <!-- end mediabody -->
                     </section>
                 </div>  <!-- well   -->
-                '; } ?>
+                '
+                ; } }else{ ?>
+              
+                    <div class="text-center noresults">
+                        Não encontrámos qualquer resultado. 
+                        <i class="far fa-grin-beam-sweat imgs-noresults"></i>
+                    </div>
+    
+                    <?php ; } ?>
+
             </div> <!-- end container -->
             
         </main>
