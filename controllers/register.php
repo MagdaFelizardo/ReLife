@@ -16,6 +16,9 @@ if(isset($_POST["register"])) {
     }else{
         $message = true;
     }
+
 }
+
+
 
 require("views/register.php");

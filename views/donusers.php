@@ -58,7 +58,7 @@
                 <div class="container">
                     <div class="backdonations">
                         <button type="button" class="btn btn link">
-                            <a class="back" href="'.BASE_PATH.'/donations/">&#8634</a>
+                            <a class="back" href="/donations/?page=<?php echo $page_number ?>">&#8634</a>
                         </button>
                     </div>
                 </div> <!-- end container -->

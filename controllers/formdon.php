@@ -7,6 +7,8 @@ $userModel= new User();
 
 $user = $userModel->getUser($_SESSION["user_id"]);
 
+$categories = $donationModel->getCategories();
+
 if(isset($_POST["sendon"])) {
 
     $data = $donationModel->giveDonation($_POST);

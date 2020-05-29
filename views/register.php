@@ -78,7 +78,10 @@
                                     ?>         
                                 </select>
                             </div>
-                                
+
+                            <!-- <img src="register-captcha.php" alt="Captcha Image">
+                            <?php echo $_SESSION["captcha"]; ?> -->
+                            
                             <div class="form-group d-flex justify-content-center">
                                 <button class="btn btn-reg" type="submit" name="register">Registar</button>
                             </div>

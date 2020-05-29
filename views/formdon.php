@@ -15,42 +15,25 @@
                 <div class="row">
                     <div class="col-6"></div>
                     <div class="col-6">
+                    <div class="text-center mt-4">
+                        <a href="<?='/'?>"><img class="logo img-fluid" src="../imgs/infitrans.png" alt="logotipo" width="150"></a>
+                    </div>
                     <h1 class="titledon">Nova Doação</h1>
                         <form class="form" action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
+                            <div class="form-group item">
                                 <label for="item">Item 
-                                <input type="text" class="form-control-inline" size="15" name="item" id="item" placeholder="O que vais doar?" required>
+                                <input type="text" class="form-control-inline item" size="30" name="item" placeholder="O que vais doar?" required>
                                 </label>
                             </div>
-                            <div class="form-check" required>
-                                <span>
-                                    <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="category_id" value="1">
-                                    Mobiliário</label>
-                                    <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="category_id" value="2">
-                                    Textéis</label>
-                                    <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="category_id" value="3">
-                                    Utensílios</label>
-                                    <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="category_id" value="4">
-                                    Decoração</label>
-                                    <br>
-                                    <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="category_id" value="5">
-                                    Electrodomésticos</label>
-                                    <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="category_id" value="6">
-                                    Higiene/Beleza</label>
-                                    <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="category_id" value="7">
-                                    Livros</label>
-                                    <label class="radiobtns col-form-label">
-                                        <input type="radio" class="form-check-input" name="category_id" value="8">
-                                    Outros</label>
-                                </span>
+
+                            <div>Categoria
+                                <select class="form-control mb-4" name="category_id" aria-label="categories" required>
+                                    <?php foreach($categories as $category) { ?>
+                                    <option value="<?php echo $category["category_id"] ?> "> <?php echo $category["category"] ?></option>
+                                    <?php ;} ?>
+                                </select> 
                             </div>
+                            
                             <span class="form-group">
                                 <input type="hidden" class="form-control-inline" name="city_id" value="<?= $user["city_id"] ?>">
                             </span>
@@ -83,12 +66,6 @@
                             </div>
                         </form>
                         
-                        
-                        <div class="backhome">
-                            <button type="button" class="btn btn link">
-                                <a class="back" href="<?='/'?>">&#8634</a>
-                            </button>
-                        </div>
                     </div> <!-- fecho da segunda coluna -->
                 </div>   <!-- fecho do row -->
 
