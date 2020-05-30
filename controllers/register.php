@@ -6,15 +6,24 @@ $userModel = new User();
 
 $cities = $userModel->cityChoice();
 
+
 if(isset($_POST["register"])) {
 
-    $data = $userModel->register($_POST);
+    $captcha = strtolower(strip_tags(trim($_POST["captcha"])));
 
-    if(isset($_SESSION["user_id"])){
-        header("Location: /");
-        exit();
+    if($captcha === $_SESSION["captcha"]){
+
+        $data = $userModel->register($_POST);
+
+        if(isset($_SESSION["user_id"])){
+            header("Location: /");
+            exit();
+        }else{
+            $message = true;
+        }
+
     }else{
-        $message = true;
+        $message_captcha = "captcha_wrong";
     }
 
 }

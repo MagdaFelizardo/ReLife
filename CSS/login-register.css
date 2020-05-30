@@ -39,7 +39,7 @@ img{
 
 .btn-reg{
     width: 150px;
-    margin-bottom: -10px;
+    margin-bottom: -15px;
 }
 
 .btn:hover{
@@ -54,6 +54,11 @@ img{
 .links:hover{
     text-decoration: none;
     color: grey;
+}
+
+.captcha-txt{
+    border-style: 1px;
+    -webkit-appearance:none;
 }
 
 

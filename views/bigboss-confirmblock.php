@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link rel="stylesheet" type="Text/css" href="/css/mycss.css">
+        <link rel="stylesheet" type="text/css" href="/css/mycss.css">
         <link rel="stylesheet" type="text/css" href="/css/bigboss-don.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <title>Manage Active Users</title>
@@ -27,7 +27,7 @@
                         <li class="list-inline-item nav2"><a class="nav-link1" href="/bigboss-pendingdons/"><i class="fas fa-hand-holding pr-3"></i>Gerir Doações</a></li>
                         <li class="list-inline-item"><a class="nav-link1" href="/bigboss-activeusers/"><i class="far fa-user pr-3"></i>Gerir Utilizadores</a></li>
                     </ul>
-                </nav> 
+                </nav>
 
                 <nav class="navbar2"> 
                     <ul class="list-inline"> 

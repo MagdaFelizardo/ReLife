@@ -11,8 +11,6 @@
     </head>
 
     <body>
-    
-
         <div class="container">
             <header><h1><a href="/"><img src="../imgs/infilogo.jpg" alt="logotipo"></a></h1> </header>
         
@@ -28,14 +26,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                 </div>
-                                <input type="email" class="form-control" placeholder="email" name="email" aria-label="email" required>    
+                                <input type="email" class="form-control" placeholder="Email" name="email" aria-label="email" required>    
                             </div>
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="password" name="password" aria-label="password" required>
+                                <input type="password" class="form-control" placeholder="Password" name="password" aria-label="password" required>
                             </div>
                             
                             <div class="form-group">
