@@ -35,6 +35,15 @@
                                 </div>
                                 <input type="password" class="form-control" placeholder="Password" name="password" aria-label="password" required>
                             </div>
+
+                            <div class="form-group text-center">
+                                <img src="/captcha/" alt="Captcha Image">
+                                    <input type="text" class="captcha-txt" name="captcha" size="10" required>
+                                    <p class="small">Escreve o que vês na imagem</p>
+                            </div>
+                            <?php if(isset($message_captcha)){ ?>
+                            <div class="text-center mb-4 text-danger">Captcha incorrecto</div>
+                            <?php } ?>
                             
                             <div class="form-group">
                                 <button type="submit" name="login" class="btn float-right btn-login">Login</button>

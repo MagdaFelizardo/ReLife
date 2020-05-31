@@ -8,6 +8,7 @@ class User extends Base {
         $data = $this->sanitizer($data);
         $register_date = date('Y-m-d');
         $api_key = bin2hex(random_bytes(32));
+        $active = 1;
 
         if(
             !empty($data["name"]) &&
@@ -22,7 +23,7 @@ class User extends Base {
             $query = $this->db->prepare("
                 INSERT INTO users
                 (name, email, password, phone, city_id, active_user, register_date, api_key) 
-                VALUES(?, ?, ?, ?, ?, 1, ?, ?)
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?)
             ");
             
             $query->execute([
@@ -31,6 +32,7 @@ class User extends Base {
                 password_hash($data["password"], PASSWORD_DEFAULT),
                 $data["phone"],
                 $data["city_id"],
+                $active,
                 $register_date,
                 $api_key
             ]);
@@ -93,6 +95,21 @@ class User extends Base {
     }
 
 
+    public function verifyEmail($email) {
+
+        $query = $this->db->prepare("
+        SELECT email
+        FROM users 
+        WHERE email = ?
+        ");
+
+        $query->execute([$email]);
+
+        $query->fetch( PDO::FETCH_ASSOC );
+
+        return $count = $query->rowCount();
+    }
+    
 
     public function updateUser($data){
 

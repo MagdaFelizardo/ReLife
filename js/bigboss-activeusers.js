@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     function deactivateUserBtn(id){
         fetch("localhost/bigboss-activeusers/", {
             "method": 'POST',
-            "headers":{"Content-Type": "application/x-www.urlencoded"},
+            "headers":{"Content-Type": "application/json; charset=utf-8"},
             "body": id
         })
 

@@ -7,16 +7,16 @@
         <link rel="stylesheet" type="text/css" href="../css/mycss.css">
         <link rel="stylesheet" type="text/css" href="../css/login-register.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="../js/verify_email.js"></script>
         <title>Register</title>
     </head>
 
     <body>
     
-
         <div class="container">
             <header><h1><a href="<?=BASE_PATH?>"><img src="../imgs/infilogo.jpg" alt="logotipo"></a></h1> </header>
         
-            <main class="d-flex justify-content-center h-100">
+            <main class="d-flex justify-content-center h-50">
                 <section class="card card-register">
                     
                     <div class="card-header"><h2>Criar Conta</h2></div>
@@ -39,8 +39,10 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                 </div>
-                                <input type="email" name="email" aria-label="email" class="form-control" placeholder="Email" required>    
+                                <input type="email" name="email" aria-label="email" class="form-control" id="email" value="" placeholder="Email" required>    
                             </div>
+                            <div id="email_existente" class="text-center mb-4 text-danger small"></div>
+
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
@@ -81,7 +83,7 @@
 
                             
                             <div class="form-group text-center">
-                                <img src="/register-captcha/" alt="Captcha Image">
+                                <img src="/captcha/" alt="Captcha Image">
                                     <input type="text" class="captcha-txt" name="captcha" size="10" required>
                                     <p class="small">Escreve o que vês na imagem</p>
                             </div>

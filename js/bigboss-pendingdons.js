@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     function deleteDonBtn(id){
         fetch("localhost/bigboss-pendingdons/", {
             "method": 'DELETE',
-            "headers":{"Content-Type": "application/x-www.urlencoded"},
+            "headers":{"Content-Type": "application/json; charset=utf-8"},
             "body": id
         })
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     function approveDonBtn(id){
         fetch("localhost/bigboss-pendingdons/", {
             "method": 'POST',
-            "headers":{"Content-Type": "application/x-www.urlencoded"},
+            "headers":{"Content-Type": "application/json; charset=utf-8"},
             "body": id
         })
 
