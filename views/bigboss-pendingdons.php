@@ -93,10 +93,8 @@
                             </div>
 
                             <div class="mt-4">
-                                <a class="linkdon text-capitalize" href="/bigboss-users/'.$pendingdon["user_id"].'">
-                                    <i class="glyphicon glyphicon-user text-capitalize"></i>
-                                    <span class="ml-1"> ' .$pendingdon["name"]. '</span>
-                                </a>
+                                <i class="glyphicon glyphicon-user text-capitalize"></i>
+                                <span class="ml-1"> ' .$pendingdon["name"]. '</span>
                             </div>
                         </div>
                     </div> <!-- media   -->

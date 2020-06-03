@@ -14,7 +14,7 @@
     <body>
     
         <div class="container">
-            <header><h1><a href="<?=BASE_PATH?>"><img src="../imgs/infilogo.jpg" alt="logotipo"></a></h1> </header>
+            <header><h1><a href="/"><img src="../imgs/infilogo.jpg" alt="logotipo"></a></h1> </header>
         
             <main class="d-flex justify-content-center h-50">
                 <section class="card card-register">
@@ -80,7 +80,6 @@
                                     ?>         
                                 </select>
                             </div>
-
                             
                             <div class="form-group text-center">
                                 <img src="/captcha/" alt="Captcha Image">
@@ -91,7 +90,6 @@
                             <div class="text-center mb-4 text-danger">Captcha incorrecto</div>
                             <?php } ?>
                            
-                            
                             <div class="form-group d-flex justify-content-center">
                                 <button class="btn btn-reg" type="submit" name="register">Registar</button>
                             </div>

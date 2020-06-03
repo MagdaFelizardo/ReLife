@@ -6,7 +6,7 @@ $url_parts = explode("/", $_SERVER["REQUEST_URI"]);
 
 //define base_path
 // define("BASE_PATH", dirname($_SERVER["SCRIPT_NAME"]) . "/");
-define("BASE_PATH", "http://localhost");
+define("BASE_PATH", "http://");
 
 // print_r($url_parts);
 // exit;
