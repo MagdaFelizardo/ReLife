@@ -81,17 +81,5 @@
     ?>
         </div>
         </main>
-
-        <footer class="footer">
-            <div class="container">
-                <nav aria-label="Nav-pages">
-                    <ul class="pagination float-right">
-                        <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                    </ul>
-                </nav>
-            </div> <!-- end container -->
-        </footer>
     </body>
 </html>

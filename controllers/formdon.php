@@ -11,14 +11,13 @@ $categories = $donationModel->getCategories();
 
 if(isset($_POST["sendon"])) {
 
-    $data = $donationModel->giveDonation($_POST);
-    
+    $rows = $donationModel->giveDonation($_POST);
 
-    if($data === false){
-        $message_one = true;
+    if($rows > 0){
+        $thank_you = true;
 
     }else{
-        $thank_you = true;
+        $complete_all_fields = true; 
     }
 
 

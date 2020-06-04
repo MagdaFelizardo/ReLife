@@ -12,8 +12,8 @@ if(isset($_SESSION["admin"])){
     $activedons = $bossModel->searchActiveDons($_GET['search']);
 }
 else{
-    header("HTTP/1.1 400 Bad Request");
-    die("Bad Request");
+    header("HTTP/1.1 401 Unauthorized");
+    die("Unauthorized");
 }
 
 

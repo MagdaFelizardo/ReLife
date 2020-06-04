@@ -52,7 +52,7 @@
                             <div class="media-body">
 
                                 <div class="alert">
-                                    <h2 class="h3 pb-4">Tens a certeza que pretende bloquear este utilizador?</h2>
+                                    <h2 class="h3 pb-4">Tem a certeza que pretende bloquear este utilizador?</h2>
                                     <p>O utilizador fica impedido de fazer login ou voltar a registar-se com o mesmo email.</p>
                                     <p> As doações existentes serão também bloqueadas. </p> 
                                     <p>Se mesmo assim quiser continuar, clique no botão de confirmação</p>

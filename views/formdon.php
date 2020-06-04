@@ -53,10 +53,8 @@
                             <p class="mt-3">Fotos até 200kb || Formatos: .jpeg, .jpg, .png, .webp, .gif e .bmp</p>
                             </div>
                             
-                            <?php if(isset($message_one)){?>
-                            <div class="text-danger text-center">Por favor preenche todos os campos</div>
-                            <?php }elseif(isset($message_two)){ ?>
-                            <div class="text-danger text-center">O upload da foto falhou. Aceitamos fotos até 200kb e nos formatos .jpg, .png, .webp, .gif, .bmp</div>
+                            <?php if(isset($complete_all_fields)){?>
+                            <div class="text-danger text-center">Por favor preenche correctamente todos os campos</div>
                             <?php }elseif(isset($thank_you)){ ?>
                             <div class="text-danger text center h3">Muito obrigado pela tua doação! <i class="fas fa-heart"></i></i></div>
                             <?php } ?>

@@ -177,47 +177,36 @@ class Donation extends Base {
 
         $photo = $this->sanitizePhoto($_FILES["photo"]);
 
-        if($photo === 0 ){
+        $donation_date = date('Y-m-d');
+        $user_id = $_SESSION["user_id"];
+        $pending_donation = 0;
 
-            $message_two = true;
-            require("views/formdon.php");
-            die();
-              
-        }else{
+        if(
+            !empty($data["item"]) &&
+            !empty($data["category_id"]) &&
+            !empty($data["description"]) &&
+            ($photo != NULL || $photo != false)
+        ) {
+            $query = $this->db->prepare("
+                INSERT INTO donations
+                (item, description, photo, donation_date, category_id, city_id, user_id, active) 
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?)
+            ");
+            
+            $query->execute([
+                $data["item"],
+                $data["description"],
+                $photo, 
+                $donation_date,
+                $data["category_id"],
+                $data["city_id"],
+                $user_id,
+                $pending_donation
+            ]);
 
-            $donation_date = date('Y-m-d');
-            $user_id = $_SESSION["user_id"];
-            $pending_donation = 0;
-
-            if(
-                !empty($data["item"]) &&
-                !empty($data["category_id"]) &&
-                !empty($data["description"]) 
-            ) {
-                $query = $this->db->prepare("
-                    INSERT INTO donations
-                    (item, description, photo, donation_date, category_id, city_id, user_id, active) 
-                    VALUES(?, ?, ?, ?, ?, ?, ?, ?)
-                ");
-                
-                $query->execute([
-                    $data["item"],
-                    $data["description"],
-                    $photo, 
-                    $donation_date,
-                    $data["category_id"],
-                    $data["city_id"],
-                    $user_id,
-                    $pending_donation
-                ]);
-
-                return $query;
-            }
-            else{
-                return false;
-            }
+            return $results = $query->rowCount();
         }
-        
+            
     }
 
 
@@ -267,10 +256,11 @@ class Donation extends Base {
 
         $photo = $this->sanitizePhoto($_FILES);
 
-        if($photo === 0 ){
-            $message_error = true;
-
-        }else{
+        if(
+            (isset($photo)) &&
+            ($photo != NULL || 
+            $photo != false ) 
+            ){
 
             $query = $this->db->prepare("
             UPDATE donations

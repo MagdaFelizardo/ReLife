@@ -143,10 +143,11 @@ class Boss extends Base {
 
         $photo = $this->sanitizePhoto($_FILES);
 
-        if($photo === 0 ){
-            $message_error = true;
-
-        }else{
+        if(
+            (isset($photo)) &&
+            ($photo != NULL || 
+            $photo != false ) 
+            ){
 
             $query = $this->db->prepare("
             UPDATE donations

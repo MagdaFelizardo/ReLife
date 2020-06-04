@@ -52,11 +52,12 @@ class Base {
                 $file_name = date("YmdHis") ."_".mt_rand(100000, 999999) . "." . array_search($detected_filetype, $allowed_files);
                 move_uploaded_file($_FILES["photo"]["tmp_name"], "./imgs/uploads/".$file_name);
                 return $file_name;
-            }
-            else{
-                return 0;
 
+            }else{
+                return NULL;
             }
+        }else{
+            return false;
         }
     }
 
