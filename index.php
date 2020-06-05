@@ -12,7 +12,7 @@ define("BASE_PATH", "http://");
 // exit;
 
 // url_parts[1] = controllers (donations / homepage / etc)
-// url_parts[2] = ID, aççao, etc
+// url_parts[2] = ID, acçao, etc
 
 
 // controller default
@@ -23,7 +23,7 @@ $controllers = ["homepage", "donations", "dontags", "doncities",
                 "donusers", "searchitem", "register", "login", "logout", 
                 "myprofile", "myprofiledit", "changepass", "confirmdelete-account", 
                 "deleteaccount", "formdon", "mydon", "mydonedit", "mydonphotoedit", 
-                "mydondelete", "deletedonation", "forgotpass", "bigboss-login", 
+                "mydondelete", "deletedonation", "bigboss-login", 
                 "bigboss-logout", "bigboss-pendingdons", "bigboss-activedons", 
                 "bigboss-activeusers", "bigboss-inactiveusers", "bigboss-blockedusers",
                 "bigboss-editdon", "bigboss-editphoto", "bigboss-useredit", "bigboss-confirmblock",
